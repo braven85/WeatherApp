@@ -1,0 +1,12 @@
+/*
+ * Główny plik dla stylów.
+ * Wszystkie partials podłączamy tutaj.
+ */
+
+// Style dla pliku z przykładem HTML fragmentu
+//@import './example';
+
+@import './utils/variables';
+
+@import './layout/main-page';
+@import './layout/five-days';

@@ -1,0 +1,10 @@
+@mixin min-max($fontFamily, $fontColor, $fontSize, $lineHeight, $display, $justify, $alignItems, $alignText) {
+  font-family: $fontFamily;
+  color: $fontColor;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  display: $display;
+  justify-content: $justify;
+  align-items: $alignItems;
+  text-align: $alignText;
+}

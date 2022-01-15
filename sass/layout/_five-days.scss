@@ -1,0 +1,668 @@
+@import '../utils/mixins';
+
+.five-days {
+  &__container {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0.56deg, #000000 -13.48%, rgba(0, 0, 0, 0) 78.75%),
+      url('../images/five-days-bg.png');
+    background-position: 41%;
+    background-size: cover;
+    display: block;
+  }
+
+  &-weather {
+    &__container {
+      max-width: 280px;
+      height: 321px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      margin-bottom: 35px;
+      display: block;
+    }
+
+    &__main {
+      max-width: 280px;
+      height: 273px;
+      background: rgba(16, 33, 54, 0.8);
+      border-radius: 34px;
+      box-shadow: 0px 5px 33px rgba(16, 33, 54, 0.6);
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__city-name {
+      width: 90%;
+      height: 26px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      display: flex;
+
+      font-family: $main-font;
+      color: $dark-bg-main-color;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__box-for-three {
+      width: 82px * 3;
+      height: 154px;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+    }
+
+    &__details {
+      width: 82px;
+      height: 154px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+
+      &-day {
+        width: 90%;
+        height: 14px;
+        margin-left: auto;
+        margin-right: auto;
+
+        font-family: $main-font;
+        color: $dark-bg-main-color;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        letter-spacing: 0.04em;
+        opacity: 0.55;
+      }
+
+      &-month {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 13px;
+        width: 90%;
+        height: 19px;
+
+        font-family: $main-font;
+        color: $dark-bg-main-color;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.04em;
+      }
+
+      &-image-box {
+        width: 35px;
+        height: 35px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+      }
+
+      &-image {
+        width: 35px;
+        height: 35px;
+        background-repeat: no-repeat;
+      }
+
+      &-min-max-box {
+        width: 82px;
+        height: 63px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        display: block;
+      }
+
+      &-min-max {
+        width: 62px;
+        height: 38px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+      }
+
+      &-min {
+        width: 26px;
+        height: 38px;
+        display: block;
+
+        &__up {
+          width: 26px;
+          height: 20px;
+          @include min-max($main-font, #767d85, 12px, 14px, flex, center, center, center);
+        }
+
+        &__down {
+          width: 26px;
+          height: 20px;
+          @include min-max($main-font, #ff6b09, 14px, 17px, flex, center, center, center);
+        }
+      }
+
+      &-line {
+        height: 30px;
+        margin: auto;
+        display: flex;
+        border: 1px solid #27384a;
+      }
+
+      &-max {
+        width: 26px;
+        height: 38px;
+        display: block;
+
+        &__up {
+          width: 26px;
+          height: 20px;
+          @include min-max($main-font, #767d85, 12px, 14px, flex, center, center, center);
+        }
+
+        &__down {
+          width: 26px;
+          height: 20px;
+          @include min-max($main-font, #ff6b09, 14px, 17px, flex, center, center, center);
+        }
+      }
+
+      &-more {
+        width: 82px;
+        height: 20px;
+        margin-top: 5px;
+        @include min-max($main-font, $dark-bg-main-color, 12px, 14px, flex, center, center, center);
+        font-weight: bold;
+        opacity: 0.3;
+        text-decoration-line: underline;
+      }
+    }
+
+    &__switch {
+      width: 58px;
+      height: 20px;
+      margin-top: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: space-between;
+
+      &-left {
+        width: 10px;
+        height: 20px;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+
+      &-right {
+        width: 10px;
+        height: 20px;
+        opacity: 0.5;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__first-chart {
+      width: 110px;
+      height: 28px;
+      margin-top: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+
+      &-text {
+        width: 72px;
+        height: 18px;
+        @include min-max($main-font, #ff6b09, 14px, 17px, flex, center, center, center);
+        text-decoration: underline;
+        margin-right: 10px;
+      }
+
+      &-icon {
+        width: 28px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: rotate(90deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-svg {
+          width: 10px;
+          height: 20px;
+          opacity: 0.5;
+
+          &:hover,
+          &:focus {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.buttons {
+  &-box {
+    &__five-days {
+      display: flex;
+      max-width: 270px;
+      height: 28px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 65px;
+    }
+  }
+}
+
+// TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
+// TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
+// TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
+// TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
+// TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
+
+@media screen and (min-width: 768px) {
+  .five-days {
+    &__container {
+    height: 680px;
+    }
+
+    &-weather {
+      &__container {
+        max-width: 620px;
+        height: 270px;
+        margin-top: 25px;
+        margin-bottom: 30px;
+      }
+
+      &__main {
+        max-width: 620px;
+        height: 270px;
+        box-shadow: 0px 8px 43px rgba(16, 33, 54, 0.6);
+        justify-content: center;
+      }
+
+      &__city-name {
+        width: 290px;
+        height: 40px;
+        margin-top: 25px;
+
+        font-size: 28px;
+        line-height: 34px;
+        letter-spacing: 0.04em;
+      }
+
+      &__box-for-three {
+        width: 100px * 5 + (4 * 20px);
+        height: 190px;
+      }
+
+      &__details {
+        width: 100px;
+        height: 190px;
+
+        &-day {
+          height: 17px;
+          font-size: 14px;
+          line-height: 17px;
+        }
+
+        &-month {
+          margin-top: 10px;
+          height: 22px;
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        &-image-box {
+          margin-top: 10px;
+        }
+
+        &-min-max-box {
+          width: 100px;
+          height: 86px;
+          margin-top: 10px;
+        }
+
+        &-min-max {
+          width: 100px;
+          height: 46px;
+        }
+
+        &-min {
+          width: 49px;
+          height: 46px;
+
+          &__up {
+            width: 49px;
+            @include min-max(
+              $main-font,
+              $dark-bg-main-color,
+              14px,
+              17px,
+              flex,
+              center,
+              center,
+              center
+            );
+            opacity: 0.55;
+          }
+
+          &__down {
+            width: 49px;
+            height: 30px;
+            font-weight: bold;
+            @include min-max($main-font, #ff6b09, 18px, 22px, flex, center, center, center);
+          }
+        }
+
+        &-line {
+          height: 46px;
+          border: 1px solid $dark-bg-main-color;
+          opacity: 0.2;
+        }
+
+        &-max {
+          width: 49px;
+          height: 46px;
+
+          &__up {
+            width: 49px;
+            @include min-max(
+              $main-font,
+              $dark-bg-main-color,
+              14px,
+              17px,
+              flex,
+              center,
+              center,
+              center
+            );
+            opacity: 0.55;
+          }
+
+          &__down {
+            width: 49px;
+            height: 30px;
+            font-weight: bold;
+            @include min-max($main-font, #ff6b09, 18px, 22px, flex, center, center, center);
+          }
+        }
+
+        &-more {
+          margin-top: 20px;
+          @include min-max(
+            $main-font,
+            $dark-bg-main-color,
+            14px,
+            17px,
+            flex,
+            center,
+            center,
+            center
+          );
+          font-weight: bold;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      &__switch {
+        width: 58px;
+        height: 20px;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+
+        &-left {
+          width: 10px;
+          height: 20px;
+          background-repeat: no-repeat;
+          opacity: 0.5;
+
+          &:hover,
+          &:focus {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+
+        &-right {
+          width: 10px;
+          height: 20px;
+          opacity: 0.5;
+
+          &:hover,
+          &:focus {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__first-chart {
+        margin-top: 30px;
+        margin-bottom: 53px;
+      }
+    }
+  }
+
+  // .buttons {
+  //   &-box {
+  //     &__five-days {
+  //       margin-top: 65px;
+  //     }
+  //   }
+  // }
+
+
+}
+
+// DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP
+// DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP
+// DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP
+// DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP
+// DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP
+
+@media screen and (min-width: 1280px) {
+  .five-days {
+    &__container {
+    height: 660px;
+    }
+
+    &__buttons-and-city-name {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      margin-top: 65px;
+    }
+
+    &-weather {
+      &__container {
+        max-width: 1060px;
+        height: 308px;
+        margin-top: 22px;
+        margin-bottom: 20px;
+      }
+
+      &__main {
+        max-width: 1060px;
+        height: 308px;
+      }
+
+      &__city-name {
+        margin-top: 0px;
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
+
+      &__box-for-three {
+        width: 120px * 5 + (4 * 60px);
+        height: 228px;
+      }
+
+      &__details {
+        width: 120px;
+        height: 228px;
+
+        &-day {
+          height: 22px;
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        &-month {
+          margin-top: 10px;
+          height: 30px;
+          font-size: 25px;
+          line-height: 30px;
+        }
+
+        &-image-box {
+          margin-top: 20px;
+        }
+
+        &-min-max-box {
+          width: 120px;
+          height: 81px;
+          margin-top: 30px;
+        }
+
+        &-min-max {
+          width: 120px;
+          height: 56px;
+        }
+
+        &-min {
+          width: 50px;
+          height: 56px;
+
+          &__up {
+            width: 50px;
+            @include min-max(
+              $main-font,
+              $dark-bg-main-color,
+              18px,
+              22px,
+              flex,
+              center,
+              center,
+              center
+            );
+          }
+          &__down {
+            width: 50px;
+            @include min-max($main-font, #ff6b09, 25px, 30px, flex, center, center, center);
+          }
+        }
+
+        &-line {
+          height: 46px;
+          border: 1px solid $dark-bg-main-color;
+          opacity: 0.2;
+        }
+
+        &-max {
+          width: 50px;
+          height: 56px;
+
+          &__up {
+            width: 50px;
+            @include min-max(
+              $main-font,
+              $dark-bg-main-color,
+              18px,
+              22px,
+              flex,
+              center,
+              center,
+              center
+            );
+          }
+
+          &__down {
+            width: 50px;
+            @include min-max($main-font, #ff6b09, 25px, 30px, flex, center, center, center);
+          }
+        }
+
+        &-more {
+          margin-top: 5px;
+        }
+      }
+
+      &__switch {
+        width: 58px;
+        height: 20px;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+
+        &-left {
+          width: 10px;
+          height: 20px;
+          background-repeat: no-repeat;
+          opacity: 0.5;
+
+          &:hover,
+          &:focus {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+
+        &-right {
+          width: 10px;
+          height: 20px;
+          opacity: 0.5;
+
+          &:hover,
+          &:focus {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__first-chart {
+        margin-top: 20px;
+        margin-bottom: 62px;
+      }
+    }
+  }
+
+  .buttons {
+    &-box {
+      &__five-days {
+        margin-left: 0;
+        margin-right: 10%;
+        margin-top: 0px;
+      }
+    }
+  }
+
+}

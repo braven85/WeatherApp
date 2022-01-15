@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.min.css">
+  </head>
+  <body>
+    <!-- MAIN -->
+    <!-- MAIN -->
+    <!-- MAIN -->
+    <main class="main-container">
+      <div class="container">
+
+        <div class="search-frame">
+          <div class="search-field">
+            <div class="search-field__icon-location">
+              <svg class="search-field__icon-loc">
+                <use href="./images/svg/symbol-defs.svg#icon-location"></use>
+              </svg>
+            </div>
+            <input class="search-field__input" type="text" placeholder="Enter the city">
+            </input>
+            <div class="search-field__icon-favorite">
+              <svg class="search-field__icon-star">
+                <use href="./images/svg/symbol-defs.svg#icon-Star-1"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCAL STORAGE -->
+        <!-- LOCAL STORAGE -->
+        <!-- LOCAL STORAGE -->
+
+        <section class="fav-city__container">
+          <div class="fav-city__boxes">
+            <div class="fav-city__capsule">
+              <div class="fav-city__capsule-text">Warszawa</div>
+              <div class="fav-city__capsule-cross">
+                <div class="fav-city__capsule-cross-line1"></div>
+                <div class="fav-city__capsule-cross-line2"></div>
+              </div>
+            </div>
+            <div class="fav-city__capsule">
+              <div class="fav-city__capsule-text">Kraków</div>
+              <div class="fav-city__capsule-cross">
+                <div class="fav-city__capsule-cross-line1"></div>
+                <div class="fav-city__capsule-cross-line2"></div>
+              </div>
+            </div>
+            <div class="fav-city__capsule">
+              <div class="fav-city__capsule-text">Gdańsk</div>
+              <div class="fav-city__capsule-cross">
+                <div class="fav-city__capsule-cross-line1"></div>
+                <div class="fav-city__capsule-cross-line2"></div>
+              </div>
+            </div>
+            <div class="fav-city__capsule">
+              <div class="fav-city__capsule-text">Opole</div>
+              <div class="fav-city__capsule-cross">
+                <div class="fav-city__capsule-cross-line1"></div>
+                <div class="fav-city__capsule-cross-line2"></div>
+              </div>
+            </div>
+            <div class="fav-city__capsule">
+              <div class="fav-city__capsule-text">Wrocław</div>
+              <div class="fav-city__capsule-cross">
+                <div class="fav-city__capsule-cross-line1"></div>
+                <div class="fav-city__capsule-cross-line2"></div>
+              </div>
+            </div>
+            <div class="fav-city__capsule">
+              <div class="fav-city__capsule-text">Łódź</div>
+              <div class="fav-city__capsule-cross">
+                <div class="fav-city__capsule-cross-line1"></div>
+                <div class="fav-city__capsule-cross-line2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="fav-city__arrow-button">
+            <svg class="fav-city__arrow">
+                <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
+              </svg>
+          </div>
+        </section>
+
+        <div class="weather-main-box">
+          <div class="weather-box-inside">
+            <div id="weather-box-icon__container">
+              <svg id="weather-box-icon">
+              </svg>
+            </div>
+            <div id="weather-box-city-name"></div>
+            <div id="weather-box-all-temp">
+              <div id="weather-box-main-temp"></div>
+              <div id="weather-box-min-max">
+                <div id="weather-min">
+                  <div id="weather-min__up">min</div>
+                  <div id="weather-min__down"></div>
+                </div>
+                <div id="weather-line"></div>
+                <div id="weather-max">
+                  <div id="weather-max__up">max</div>
+                  <div id="weather-max__down"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TODAY LINK -->
+        <div class="buttons-box">
+          <a href="#" class="button-link__today">
+            <button class="button-today">TODAY</button>
+          </a>
+
+          <!-- FIVE DAYS LINK -->
+          <a href="./five-days.html" class="button-link__five-days">
+            <button class="button-five-days">5 DAYS</button>
+          </a>
+
+        </div>
+
+        <div class="date-and-quote-container">
+          <div class="date-box">
+            <div class="date-box-inside">
+              <div class="date-box-day"></div>
+
+              <div class="date-box-month-and-sun">
+
+                <div class="date-box-month">
+                  <div class="date-box-month-name"></div>
+                  <div class="date-box-month-line"></div>
+                  <div class="date-box-month-hour"></div>
+                </div>
+
+                <div class="date-box-sun">
+                  <div class="date-box-sun-rise">
+                    <svg class="date-box-sun-icon">
+                      <use href="./images/svg/symbol-defs.svg#icon-sunrise-orange"></use>
+                    </svg>
+                    <span class="date-box-sun-rise-text"></span>
+                  </div>
+                  <div class="date-box-sun-line"></div>
+                  <div class="date-box-sun-set">
+                    <svg class="date-box-sun-icon">
+                      <use href="./images/svg/symbol-defs.svg#icon-sunset-orange"></use>
+                    </svg>
+                    <span class="date-box-sun-set-text"></span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <section class="quote-container">
+            <div class="quote-main">
+              Who cares about the clouds when we're together?
+              Just sing a song and bring the sunny weather.
+            </div>
+            <div class="quote-author">
+              Dale Evans
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </main>
+
+    <script type="module" src="./js/fetchApi.js"></script>
+    <script type="module" src="./js/main-functions.js"></script>
+    <script type="module" src="./js/time-functions.js"></script>
+    <script type="module" src="./js/js-icons.js"></script>
+
+  </body>
+</html>
