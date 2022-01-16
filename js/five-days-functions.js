@@ -1,4 +1,4 @@
-import { fetchCityFiveDays } from './fetchApi.js';
+import { fetchCityFiveDays } from "./fetchApi.js";
 import {
   sunnySvg,
   snowySvg,
@@ -9,39 +9,54 @@ import {
   sunriseSvg,
   sunsetSvg,
   sunCloudSvg,
-  cloudySvg
-} from './js-icons.js';
+  cloudySvg,
+} from "./js-icons.js";
 
-const searchInput = document.querySelector('.search-field__input');
+const searchInput = document.querySelector(".search-field__input");
 
-const cityNameInside = document.getElementById('city-inside');
-const cityNameOutside = document.getElementById('city-outside');
+const cityNameInside = document.getElementById("city-inside");
+const cityNameOutside = document.getElementById("city-outside");
 
 let foundCityTemperatures;
-const hourToCheckMin = '06:00:00';
-const hourToCheckMax = '12:00:00';
+const hourToCheckMin = "06:00:00";
+const hourToCheckMax = "12:00:00";
 let minTemperatures = [0, 0, 0, 0, 0];
 let maxTemperatures = [0, 0, 0, 0, 0];
 let weatherCodes = [];
 
-const containerForBoxes = document.querySelector('.five-days-weather__box-for-five');
+const containerForBoxes = document.querySelector(
+  ".five-days-weather__box-for-five"
+);
 
 const weekDays = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
 ];
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 let datatoday = new Date();
 // ustawienie zmiennej na następny dzień po dniu dzisiejszym
@@ -57,7 +72,7 @@ function renderContainers() {
     let currentMonth = new Date(datatodays).getMonth();
 
     if (currentDayOfMonth >= 1 && currentDayOfMonth <= 9) {
-      currentDayOfMonthWithZero = '0' + currentDayOfMonth;
+      currentDayOfMonthWithZero = "0" + currentDayOfMonth;
     } else if (currentDayOfMonth >= 10 && currentDayOfMonth <= 31) {
       currentDayOfMonthWithZero = currentDayOfMonth;
     }
@@ -92,73 +107,72 @@ function renderContainers() {
 renderContainers();
 
 const dayOneMinTemp = document
-  .getElementById('details-1')
-  .querySelector('.five-days-weather__details-min__down');
+  .getElementById("details-1")
+  .querySelector(".five-days-weather__details-min__down");
 const dayOneMaxTemp = document
-  .getElementById('details-1')
-  .querySelector('.five-days-weather__details-max__down');
+  .getElementById("details-1")
+  .querySelector(".five-days-weather__details-max__down");
 
 const dayTwoMinTemp = document
-  .getElementById('details-2')
-  .querySelector('.five-days-weather__details-min__down');
+  .getElementById("details-2")
+  .querySelector(".five-days-weather__details-min__down");
 const dayTwoMaxTemp = document
-  .getElementById('details-2')
-  .querySelector('.five-days-weather__details-max__down');
+  .getElementById("details-2")
+  .querySelector(".five-days-weather__details-max__down");
 
 const dayThreeMinTemp = document
-  .getElementById('details-3')
-  .querySelector('.five-days-weather__details-min__down');
+  .getElementById("details-3")
+  .querySelector(".five-days-weather__details-min__down");
 const dayThreeMaxTemp = document
-  .getElementById('details-3')
-  .querySelector('.five-days-weather__details-max__down');
+  .getElementById("details-3")
+  .querySelector(".five-days-weather__details-max__down");
 
 const dayFourMinTemp = document
-  .getElementById('details-4')
-  .querySelector('.five-days-weather__details-min__down');
+  .getElementById("details-4")
+  .querySelector(".five-days-weather__details-min__down");
 const dayFourMaxTemp = document
-  .getElementById('details-4')
-  .querySelector('.five-days-weather__details-max__down');
+  .getElementById("details-4")
+  .querySelector(".five-days-weather__details-max__down");
 
 const dayFiveMinTemp = document
-  .getElementById('details-5')
-  .querySelector('.five-days-weather__details-min__down');
+  .getElementById("details-5")
+  .querySelector(".five-days-weather__details-min__down");
 const dayFiveMaxTemp = document
-  .getElementById('details-5')
-  .querySelector('.five-days-weather__details-max__down');
+  .getElementById("details-5")
+  .querySelector(".five-days-weather__details-max__down");
 
-
-const dayFourCard = document.getElementById('details-4');
-const dayFiveCard = document.getElementById('details-5');
-const switchLink = document.querySelector('.five-days-weather__switch');
+const dayFourCard = document.getElementById("details-4");
+const dayFiveCard = document.getElementById("details-5");
+const switchLink = document.querySelector(".five-days-weather__switch");
 
 function setResolutionDependencies() {
   if (window.screen.width < 768) {
-    dayFourCard.style.display = 'none';
-    dayFiveCard.style.display = 'none';
-    switchLink.style.display = 'flex';
-    cityNameOutside.style.display = 'none';
-    cityNameInside.style.display = 'flex';
+    dayFourCard.style.display = "none";
+    dayFiveCard.style.display = "none";
+    switchLink.style.display = "flex";
+    cityNameOutside.style.display = "none";
+    cityNameInside.style.display = "flex";
   } else if (window.screen.width >= 768) {
-    dayFourCard.style.display = 'block';
-    dayFiveCard.style.display = 'block';
-    switchLink.style.display = 'none';
-    cityNameInside.style.display = 'none';
-    cityNameOutside.style.display = 'flex';
+    dayFourCard.style.display = "block";
+    dayFiveCard.style.display = "block";
+    switchLink.style.display = "none";
+    cityNameInside.style.display = "none";
+    cityNameOutside.style.display = "flex";
   }
 }
 
 setResolutionDependencies();
 
-window.addEventListener('resize', then => {
+window.addEventListener("resize", (then) => {
   setResolutionDependencies();
-})
+});
 
 function updateWeatherIcons() {
-  const sunnyCode = '01d';
-  const fewCloudsCode = '02d';
-  const cloudyCode1 = '03d';
-  const cloudyCode2 = '04d';
-  const snowyCode = '13d';
+  const sunnyCode = "01d";
+  const fewCloudsCode = "02d";
+  const cloudyCode1 = "03d";
+  const cloudyCode2 = "04d";
+  const snowyCode = "13d";
 
   let weatherName = [];
 
@@ -184,23 +198,21 @@ function updateWeatherIcons() {
   dayFiveIcon.backgroundImage = weatherName[4];
 }
 
-
-
 function updateTemperatures() {
-  dayOneMinTemp.innerHTML = minTemperatures[0] + '°';
-  dayOneMaxTemp.innerHTML = maxTemperatures[0] + '°';
+  dayOneMinTemp.innerHTML = minTemperatures[0] + "°";
+  dayOneMaxTemp.innerHTML = maxTemperatures[0] + "°";
 
-  dayTwoMinTemp.innerHTML = minTemperatures[1] + '°';
-  dayTwoMaxTemp.innerHTML = maxTemperatures[1] + '°';
+  dayTwoMinTemp.innerHTML = minTemperatures[1] + "°";
+  dayTwoMaxTemp.innerHTML = maxTemperatures[1] + "°";
 
-  dayThreeMinTemp.innerHTML = minTemperatures[2] + '°';
-  dayThreeMaxTemp.innerHTML = maxTemperatures[2] + '°';
+  dayThreeMinTemp.innerHTML = minTemperatures[2] + "°";
+  dayThreeMaxTemp.innerHTML = maxTemperatures[2] + "°";
 
-  dayFourMinTemp.innerHTML = minTemperatures[3] + '°';
-  dayFourMaxTemp.innerHTML = maxTemperatures[3] + '°';
+  dayFourMinTemp.innerHTML = minTemperatures[3] + "°";
+  dayFourMaxTemp.innerHTML = maxTemperatures[3] + "°";
 
-  dayFiveMinTemp.innerHTML = minTemperatures[4] + '°';
-  dayFiveMaxTemp.innerHTML = maxTemperatures[4] + '°';
+  dayFiveMinTemp.innerHTML = minTemperatures[4] + "°";
+  dayFiveMaxTemp.innerHTML = maxTemperatures[4] + "°";
 }
 
 function getTemperatures(res) {
@@ -209,12 +221,17 @@ function getTemperatures(res) {
   foundCityTemperatures = res.list;
 
   let dateBeforeLoop = new Date();
-  let dateBeforeLoopTomorrow = dateBeforeLoop.setDate(new Date(dateBeforeLoop).getDate() + 1);
+  let dateBeforeLoopTomorrow = dateBeforeLoop.setDate(
+    new Date(dateBeforeLoop).getDate() + 1
+  );
   let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
 
   for (let i = 0; i <= 4; i++) {
     for (let temp of foundCityTemperatures) {
-      if (temp.dt_txt.slice(8, 10) == dateForLoop && temp.dt_txt.slice(11, 19) == hourToCheckMin) {
+      if (
+        temp.dt_txt.slice(8, 10) == dateForLoop &&
+        temp.dt_txt.slice(11, 19) == hourToCheckMin
+      ) {
         minTemperatures[i] = Math.round(temp.main.temp_min);
       } else if (
         temp.dt_txt.slice(8, 10) == dateForLoop &&
@@ -227,7 +244,9 @@ function getTemperatures(res) {
       }
     }
 
-    dateBeforeLoopTomorrow = dateBeforeLoop.setDate(new Date(dateBeforeLoop).getDate() + 1);
+    dateBeforeLoopTomorrow = dateBeforeLoop.setDate(
+      new Date(dateBeforeLoop).getDate() + 1
+    );
     dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
   }
 }
@@ -239,19 +258,19 @@ function buildResponse(res) {
 }
 
 function defaultCity() {
-  fetchCityFiveDays('Skarżysko-Kamienna').then(res => {
+  fetchCityFiveDays("Skarżysko-Kamienna").then((res) => {
     buildResponse(res);
   });
 }
 
 defaultCity();
 
-searchInput.addEventListener('change', event => {
+searchInput.addEventListener("change", (event) => {
   event.preventDefault();
-  if (searchInput.value === '') {
+  if (searchInput.value === "") {
     defaultCity();
   } else {
-    fetchCityFiveDays(searchInput.value).then(res => {
+    fetchCityFiveDays(searchInput.value).then((res) => {
       buildResponse(res);
     });
   }
@@ -260,25 +279,24 @@ searchInput.addEventListener('change', event => {
 // https://codepen.io/shshaw/pen/rrOZQQ
 
 let dayOneIcon = document
-  .getElementById('details-1')
-  .querySelector('.five-days-weather__details-image').style;
+  .getElementById("details-1")
+  .querySelector(".five-days-weather__details-image").style;
 
 let dayTwoIcon = document
-  .getElementById('details-2')
-  .querySelector('.five-days-weather__details-image').style;
+  .getElementById("details-2")
+  .querySelector(".five-days-weather__details-image").style;
 
 let dayThreeIcon = document
-  .getElementById('details-3')
-  .querySelector('.five-days-weather__details-image').style;
+  .getElementById("details-3")
+  .querySelector(".five-days-weather__details-image").style;
 
 let dayFourIcon = document
-  .getElementById('details-4')
-  .querySelector('.five-days-weather__details-image').style;
+  .getElementById("details-4")
+  .querySelector(".five-days-weather__details-image").style;
 
 let dayFiveIcon = document
-  .getElementById('details-5')
-  .querySelector('.five-days-weather__details-image').style;
-
+  .getElementById("details-5")
+  .querySelector(".five-days-weather__details-image").style;
 
 // karty pojawiające się po kliknięciu przycisku MORE INFO
 const moreInfoCardsContainer = document.querySelector(".five-days__more-cards");
@@ -312,31 +330,31 @@ for (let i = 1; i <= 7; i++) {
                 </div>`;
 }
 
-const moreInfoCard1 = document.getElementById('more-1').style;
-const moreInfoCard2 = document.getElementById('more-2').style;
-const moreInfoCard3 = document.getElementById('more-3').style;
-const moreInfoCard4 = document.getElementById('more-4').style;
-const moreInfoCard5 = document.getElementById('more-5').style;
-const moreInfoCard6 = document.getElementById('more-6').style;
+const moreInfoCard1 = document.getElementById("more-1").style;
+const moreInfoCard2 = document.getElementById("more-2").style;
+const moreInfoCard3 = document.getElementById("more-3").style;
+const moreInfoCard4 = document.getElementById("more-4").style;
+const moreInfoCard5 = document.getElementById("more-5").style;
+const moreInfoCard6 = document.getElementById("more-6").style;
 const moreInfoCard7 = document.getElementById("more-7").style;
 
 function moreInfoCardsRules() {
   if (window.screen.width < 768) {
-    moreInfoCard1.display = 'flex';
-    moreInfoCard2.display = 'flex';
-    moreInfoCard3.display = 'none';
-    moreInfoCard4.display = 'none';
-    moreInfoCard5.display = 'none';
-    moreInfoCard6.display = 'none';
+    moreInfoCard1.display = "flex";
+    moreInfoCard2.display = "flex";
+    moreInfoCard3.display = "none";
+    moreInfoCard4.display = "none";
+    moreInfoCard5.display = "none";
+    moreInfoCard6.display = "none";
     moreInfoCard7.display = "none";
-    moreInfoLine.style.display = 'flex';
+    moreInfoLine.style.display = "flex";
   } else if (window.screen.width < 1280) {
     moreInfoCard1.display = "flex";
     moreInfoCard2.display = "flex";
     moreInfoCard3.display = "flex";
-    moreInfoCard4.display = 'none';
-    moreInfoCard5.display = 'none';
-    moreInfoCard6.display = 'none';
+    moreInfoCard4.display = "none";
+    moreInfoCard5.display = "none";
+    moreInfoCard6.display = "none";
     moreInfoCard7.display = "none";
     moreInfoLine.style.display = "none";
   } else {
@@ -351,8 +369,27 @@ function moreInfoCardsRules() {
   }
 }
 
-addEventListener('resize', then => {
+addEventListener("resize", (then) => {
   moreInfoCardsRules();
-})
+});
 
 moreInfoCardsRules();
+
+// kliknięcie na MORE INFO
+const moreInfoUnder5DaysCards = document.querySelectorAll(
+  ".five-days-weather__details-more"
+);
+
+const fiveDaysMoreInfoContainer = document.querySelector(".five-days__more");
+const showing = "flex";
+const notShowing = "none";
+
+moreInfoUnder5DaysCards.forEach((card) => {
+  card.addEventListener("click", then => {
+    if (fiveDaysMoreInfoContainer.style.display = showing) {
+      fiveDaysMoreInfoContainer.style.display = notShowing;
+    } else if (fiveDaysMoreInfoContainer.style.display = notShowing) {
+      fiveDaysMoreInfoContainer.style.display = showing;
+    }
+  });
+});

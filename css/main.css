@@ -963,6 +963,11 @@
   text-decoration-line: underline;
 }
 
+.five-days-weather__details-more:hover, .five-days-weather__details-more:focus {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .five-days-weather__switch {
   width: 58px;
   height: 20px;
@@ -1167,6 +1172,10 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 65px;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {

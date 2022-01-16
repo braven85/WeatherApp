@@ -182,6 +182,12 @@
         font-weight: bold;
         opacity: 0.3;
         text-decoration-line: underline;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+          cursor: pointer;
+        }
       }
     }
 
@@ -403,6 +409,10 @@
       margin-top: 65px;
     }
   }
+}
+
+.hidden {
+  display: none;
 }
 
 // TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
