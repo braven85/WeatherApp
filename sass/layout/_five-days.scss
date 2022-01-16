@@ -420,13 +420,13 @@
     &-weather {
       &__container {
         max-width: 620px;
-        height: 270px + 28px + 30px;
+        height: 571px + 28px + 30px;
         margin-top: 25px;
         margin-bottom: 53px;
       }
       &__main {
         max-width: 620px;
-        height: 270px;
+        height: 571px;
         box-shadow: 0px 8px 43px rgba(16, 33, 54, 0.6);
         justify-content: center;
       }
@@ -596,6 +596,135 @@
         margin-bottom: 0px;
       }
     }
+
+  // ===============================================================================
+  // ===============================================================================
+  // ===============================================================================
+
+  &__more {
+    width: (120px * 3) + 20px;
+    height: 238px;
+    margin: 40px auto 29px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-cards {
+      width: (120px * 3) + 20px;
+      height: 218px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-card {
+      width: 120px;
+      height: 218px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      border-radius: 25px;
+
+      &-inside {
+        width: 88px;
+        height: 185px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-hour {
+          width: 82px;
+          height: 20px;
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $dark-bg-main-color;
+          opacity: 0.54;
+        }
+
+        &-icon {
+          &-con {
+            width: 35px;
+            height: 35px;
+            margin-top: 10px;
+          }
+
+          width: 35px;
+          height: 35px;
+          background-image: url("../images/svg/sunice.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &-temp {
+          width: 50px;
+          height: 30px;
+          margin-top: 10px;
+
+          font-family: $main-font;
+          font-size: 18px;
+          line-height: 22px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $secondary-font-color;
+        }
+      }
+    }
+
+    &-spec {
+      width: 88px;
+      height: 70px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+
+      &-field {
+        width: 88px;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        &-icon {
+          width: 20px;
+          height: 20px;
+          background-image: url("../images/svg/barometer.svg");
+          background-repeat: no-repeat;
+          opacity: 0.54;
+        }
+
+        &-data {
+          width: 58px;
+          height: 20px;
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          align-items: center;
+          color: $main-font-color;
+          opacity: 0.54;
+        }
+      }
+    }
+
+    &-line {
+      width: 250px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  // ==================================================================
+  // ==================================================================
+  // ==================================================================
   }
 
   // .buttons {
@@ -632,14 +761,14 @@
     &-weather {
       &__container {
         max-width: 1060px;
-        height: 308px + 20px + 28px;
+        height: 556px + 20px + 28px;
         margin-top: 22px;
         margin-bottom: 62px;
       }
 
       &__main {
         max-width: 1060px;
-        height: 308px;
+        height: 556px;
       }
 
       &__city-name {
@@ -652,6 +781,7 @@
       &__box-for-five {
         width: 120px * 5 + (4 * 60px);
         height: 228px;
+        margin-top: 40px;
       }
 
       &__details {
@@ -784,6 +914,135 @@
         //margin-bottom: 0px;
       }
     }
+
+      // ===============================================================================
+  // ===============================================================================
+  // ===============================================================================
+
+  &__more {
+    width: (120px * 7) + (10px * 6);
+    height: 238px;
+    margin: 40px auto 29px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-cards {
+      width: (120px * 7) + (10px * 6);
+      height: 218px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-card {
+      width: 120px;
+      height: 218px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      border-radius: 25px;
+
+      &-inside {
+        width: 88px;
+        height: 185px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-hour {
+          width: 82px;
+          height: 20px;
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $dark-bg-main-color;
+          opacity: 0.54;
+        }
+
+        &-icon {
+          &-con {
+            width: 35px;
+            height: 35px;
+            margin-top: 10px;
+          }
+
+          width: 35px;
+          height: 35px;
+          background-image: url("../images/svg/sunice.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &-temp {
+          width: 50px;
+          height: 30px;
+          margin-top: 10px;
+
+          font-family: $main-font;
+          font-size: 18px;
+          line-height: 22px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $secondary-font-color;
+        }
+      }
+    }
+
+    &-spec {
+      width: 88px;
+      height: 70px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+
+      &-field {
+        width: 88px;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        &-icon {
+          width: 20px;
+          height: 20px;
+          background-image: url("../images/svg/barometer.svg");
+          background-repeat: no-repeat;
+          opacity: 0.54;
+        }
+
+        &-data {
+          width: 58px;
+          height: 20px;
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          align-items: center;
+          color: $main-font-color;
+          opacity: 0.54;
+        }
+      }
+    }
+
+    &-line {
+      width: 250px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  // ==================================================================
+  // ==================================================================
+  // ==================================================================
   }
 
   .buttons {

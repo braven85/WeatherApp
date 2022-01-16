@@ -1172,13 +1172,13 @@
 @media screen and (min-width: 768px) {
   .five-days-weather__container {
     max-width: 620px;
-    height: 328px;
+    height: 629px;
     margin-top: 25px;
     margin-bottom: 53px;
   }
   .five-days-weather__main {
     max-width: 620px;
-    height: 270px;
+    height: 571px;
     box-shadow: 0px 8px 43px rgba(16, 33, 54, 0.6);
     justify-content: center;
   }
@@ -1330,6 +1330,110 @@
     margin-top: 30px;
     margin-bottom: 0px;
   }
+  .five-days__more {
+    width: 380px;
+    height: 238px;
+    margin: 40px auto 29px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .five-days__more-cards {
+    width: 380px;
+    height: 218px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .five-days__more-card {
+    width: 120px;
+    height: 218px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    border-radius: 25px;
+  }
+  .five-days__more-card-inside {
+    width: 88px;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .five-days__more-card-inside-hour {
+    width: 82px;
+    height: 20px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    opacity: 0.54;
+  }
+  .five-days__more-card-inside-icon {
+    width: 35px;
+    height: 35px;
+    background-image: url("../images/svg/sunice.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .five-days__more-card-inside-icon-con {
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+  }
+  .five-days__more-card-inside-temp {
+    width: 50px;
+    height: 30px;
+    margin-top: 10px;
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF6B09;
+  }
+  .five-days__more-spec {
+    width: 88px;
+    height: 70px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .five-days__more-spec-field {
+    width: 88px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .five-days__more-spec-field-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/svg/barometer.svg");
+    background-repeat: no-repeat;
+    opacity: 0.54;
+  }
+  .five-days__more-spec-field-data {
+    width: 58px;
+    height: 20px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    opacity: 0.54;
+  }
+  .five-days__more-line {
+    width: 250px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -1342,13 +1446,13 @@
   }
   .five-days-weather__container {
     max-width: 1060px;
-    height: 356px;
+    height: 604px;
     margin-top: 22px;
     margin-bottom: 62px;
   }
   .five-days-weather__main {
     max-width: 1060px;
-    height: 308px;
+    height: 556px;
   }
   .five-days-weather__city-name {
     margin-top: 0px;
@@ -1359,6 +1463,7 @@
   .five-days-weather__box-for-five {
     width: 840px;
     height: 228px;
+    margin-top: 40px;
   }
   .five-days-weather__details {
     width: 120px;
@@ -1477,6 +1582,110 @@
   }
   .five-days-weather__first-chart {
     margin-top: 20px;
+  }
+  .five-days__more {
+    width: 900px;
+    height: 238px;
+    margin: 40px auto 29px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .five-days__more-cards {
+    width: 900px;
+    height: 218px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .five-days__more-card {
+    width: 120px;
+    height: 218px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    border-radius: 25px;
+  }
+  .five-days__more-card-inside {
+    width: 88px;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .five-days__more-card-inside-hour {
+    width: 82px;
+    height: 20px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    opacity: 0.54;
+  }
+  .five-days__more-card-inside-icon {
+    width: 35px;
+    height: 35px;
+    background-image: url("../images/svg/sunice.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .five-days__more-card-inside-icon-con {
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+  }
+  .five-days__more-card-inside-temp {
+    width: 50px;
+    height: 30px;
+    margin-top: 10px;
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF6B09;
+  }
+  .five-days__more-spec {
+    width: 88px;
+    height: 70px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .five-days__more-spec-field {
+    width: 88px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .five-days__more-spec-field-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/svg/barometer.svg");
+    background-repeat: no-repeat;
+    opacity: 0.54;
+  }
+  .five-days__more-spec-field-data {
+    width: 58px;
+    height: 20px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    opacity: 0.54;
+  }
+  .five-days__more-line {
+    width: 250px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
   }
   .buttons-box__five-days {
     margin-left: 0;
