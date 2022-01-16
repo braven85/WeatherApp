@@ -244,7 +244,7 @@ function defaultCity() {
   });
 }
 
-//defaultCity();
+defaultCity();
 
 searchInput.addEventListener('change', event => {
   event.preventDefault();
