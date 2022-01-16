@@ -14,7 +14,8 @@
   &-weather {
     &__container {
       max-width: 280px;
-      height: 321px;
+      //height: 321px; // przed kliknięciem more info
+      height: 589px; // po kliknięciu more info
       margin-left: auto;
       margin-right: auto;
       margin-top: 30px;
@@ -24,7 +25,8 @@
 
     &__main {
       max-width: 280px;
-      height: 273px;
+      //height: 273px; // przed kliknieciem
+      height: 540px; // po kliknieciu
       background: rgba(16, 33, 54, 0.8);
       border-radius: 34px;
       box-shadow: 0px 5px 33px rgba(16, 33, 54, 0.6);
@@ -50,7 +52,7 @@
       text-align: center;
     }
 
-    &__box-for-three {
+    &__box-for-five {
       width: 82px * 3;
       height: 154px;
       margin-top: 20px;
@@ -109,6 +111,7 @@
         width: 35px;
         height: 35px;
         background-repeat: no-repeat;
+        background-position: center;
       }
 
       &-min-max-box {
@@ -258,6 +261,134 @@
       }
     }
   }
+
+  // ===============================================================================
+  // ===============================================================================
+  // ===============================================================================
+
+  &__more {
+    width: 250px;
+    height: 238px;
+    margin: 20px auto 29px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-cards {
+      width: 250px;
+      height: 218px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-card {
+      width: 120px;
+      height: 218px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      border-radius: 25px;
+
+      &-inside {
+        width: 88px;
+        height: 185px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-hour {
+          width: 82px;
+          height: 20px;
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $dark-bg-main-color;
+          opacity: 0.54;
+        }
+
+        &-icon {
+          &-con {
+            width: 35px;
+            height: 35px;
+            margin-top: 10px;
+          }
+
+          width: 35px;
+          height: 35px;
+          background-image: url("../images/svg/sunice.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &-temp {
+          width: 50px;
+          height: 30px;
+          margin-top: 10px;
+
+          font-family: $main-font;
+          font-size: 18px;
+          line-height: 22px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $secondary-font-color;
+        }
+      }
+    }
+
+    &-spec {
+      width: 88px;
+      height: 70px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+
+      &-field {
+        width: 88px;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        &-icon {
+          width: 20px;
+          height: 20px;
+          background-image: url("../images/svg/barometer.svg");
+          background-repeat: no-repeat;
+          opacity: 0.54;
+        }
+
+        &-data {
+          width: 58px;
+          height: 20px;
+
+          font-family: $main-font;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          align-items: center;
+          color: $main-font-color;
+          opacity: 0.54;
+        }
+      }
+    }
+
+    &-line {
+      width: 250px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  // ==================================================================
+  // ==================================================================
+  // ==================================================================
 }
 
 .buttons {
@@ -281,18 +412,17 @@
 
 @media screen and (min-width: 768px) {
   .five-days {
-    &__container {
-    height: 680px;
-    }
+    // &__container {
+    // height: 100%;
+    // }
 
     &-weather {
       &__container {
         max-width: 620px;
-        height: 270px;
+        height: 270px + 28px + 30px;
         margin-top: 25px;
-        margin-bottom: 30px;
+        margin-bottom: 53px;
       }
-
       &__main {
         max-width: 620px;
         height: 270px;
@@ -310,7 +440,7 @@
         letter-spacing: 0.04em;
       }
 
-      &__box-for-three {
+      &__box-for-five {
         width: 100px * 5 + (4 * 20px);
         height: 190px;
       }
@@ -462,7 +592,7 @@
 
       &__first-chart {
         margin-top: 30px;
-        margin-bottom: 53px;
+        margin-bottom: 0px;
       }
     }
   }
@@ -486,9 +616,9 @@
 
 @media screen and (min-width: 1280px) {
   .five-days {
-    &__container {
-    height: 660px;
-    }
+    // &__container {
+    // height: 100%;
+    // }
 
     &__buttons-and-city-name {
       width: 100%;
@@ -501,9 +631,9 @@
     &-weather {
       &__container {
         max-width: 1060px;
-        height: 308px;
+        height: 308px + 20px + 28px;
         margin-top: 22px;
-        margin-bottom: 20px;
+        margin-bottom: 62px;
       }
 
       &__main {
@@ -518,7 +648,7 @@
         right: 0;
       }
 
-      &__box-for-three {
+      &__box-for-five {
         width: 120px * 5 + (4 * 60px);
         height: 228px;
       }
@@ -650,7 +780,7 @@
 
       &__first-chart {
         margin-top: 20px;
-        margin-bottom: 62px;
+        //margin-bottom: 0px;
       }
     }
   }

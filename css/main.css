@@ -762,7 +762,7 @@
 
 .five-days-weather__container {
   max-width: 280px;
-  height: 321px;
+  height: 589px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -772,7 +772,7 @@
 
 .five-days-weather__main {
   max-width: 280px;
-  height: 273px;
+  height: 540px;
   background: rgba(16, 33, 54, 0.8);
   border-radius: 34px;
   box-shadow: 0px 5px 33px rgba(16, 33, 54, 0.6);
@@ -797,7 +797,7 @@
   text-align: center;
 }
 
-.five-days-weather__box-for-three {
+.five-days-weather__box-for-five {
   width: 246px;
   height: 154px;
   margin-top: 20px;
@@ -855,6 +855,7 @@
   width: 35px;
   height: 35px;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .five-days-weather__details-min-max-box {
@@ -1042,6 +1043,122 @@
   cursor: pointer;
 }
 
+.five-days__more {
+  width: 250px;
+  height: 238px;
+  margin: 20px auto 29px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.five-days__more-cards {
+  width: 250px;
+  height: 218px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.five-days__more-card {
+  width: 120px;
+  height: 218px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.five-days__more-card-inside {
+  width: 88px;
+  height: 185px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.five-days__more-card-inside-hour {
+  width: 82px;
+  height: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  opacity: 0.54;
+}
+
+.five-days__more-card-inside-icon {
+  width: 35px;
+  height: 35px;
+  background-image: url("../images/svg/sunice.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.five-days__more-card-inside-icon-con {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.five-days__more-card-inside-temp {
+  width: 50px;
+  height: 30px;
+  margin-top: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FF6B09;
+}
+
+.five-days__more-spec {
+  width: 88px;
+  height: 70px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.five-days__more-spec-field {
+  width: 88px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.five-days__more-spec-field-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/svg/barometer.svg");
+  background-repeat: no-repeat;
+  opacity: 0.54;
+}
+
+.five-days__more-spec-field-data {
+  width: 58px;
+  height: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #FFF;
+  opacity: 0.54;
+}
+
+.five-days__more-line {
+  width: 250px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
 .buttons-box__five-days {
   display: flex;
   max-width: 270px;
@@ -1052,14 +1169,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .five-days__container {
-    height: 680px;
-  }
   .five-days-weather__container {
     max-width: 620px;
-    height: 270px;
+    height: 328px;
     margin-top: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 53px;
   }
   .five-days-weather__main {
     max-width: 620px;
@@ -1075,7 +1189,7 @@
     line-height: 34px;
     letter-spacing: 0.04em;
   }
-  .five-days-weather__box-for-three {
+  .five-days-weather__box-for-five {
     width: 580px;
     height: 190px;
   }
@@ -1213,14 +1327,11 @@
   }
   .five-days-weather__first-chart {
     margin-top: 30px;
-    margin-bottom: 53px;
+    margin-bottom: 0px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .five-days__container {
-    height: 660px;
-  }
   .five-days__buttons-and-city-name {
     width: 100%;
     display: flex;
@@ -1230,9 +1341,9 @@
   }
   .five-days-weather__container {
     max-width: 1060px;
-    height: 308px;
+    height: 356px;
     margin-top: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 62px;
   }
   .five-days-weather__main {
     max-width: 1060px;
@@ -1244,7 +1355,7 @@
     left: 0;
     right: 0;
   }
-  .five-days-weather__box-for-three {
+  .five-days-weather__box-for-five {
     width: 840px;
     height: 228px;
   }
@@ -1365,7 +1476,6 @@
   }
   .five-days-weather__first-chart {
     margin-top: 20px;
-    margin-bottom: 62px;
   }
   .buttons-box__five-days {
     margin-left: 0;

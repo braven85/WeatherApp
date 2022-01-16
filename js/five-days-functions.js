@@ -24,7 +24,7 @@ let minTemperatures = [0, 0, 0, 0, 0];
 let maxTemperatures = [0, 0, 0, 0, 0];
 let weatherCodes = [];
 
-const containerForBoxes = document.querySelector('.five-days-weather__box-for-three');
+const containerForBoxes = document.querySelector('.five-days-weather__box-for-five');
 
 const weekDays = [
   'Sunday',
@@ -244,7 +244,7 @@ function defaultCity() {
   });
 }
 
-defaultCity();
+//defaultCity();
 
 searchInput.addEventListener('change', event => {
   event.preventDefault();
