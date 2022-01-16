@@ -374,22 +374,3 @@ addEventListener("resize", (then) => {
 });
 
 moreInfoCardsRules();
-
-// kliknięcie na MORE INFO
-const moreInfoUnder5DaysCards = document.querySelectorAll(
-  ".five-days-weather__details-more"
-);
-
-const fiveDaysMoreInfoContainer = document.querySelector(".five-days__more");
-const showing = "flex";
-const notShowing = "none";
-
-moreInfoUnder5DaysCards.forEach((card) => {
-  card.addEventListener("click", then => {
-    if (fiveDaysMoreInfoContainer.style.display = showing) {
-      fiveDaysMoreInfoContainer.style.display = notShowing;
-    } else if (fiveDaysMoreInfoContainer.style.display = notShowing) {
-      fiveDaysMoreInfoContainer.style.display = showing;
-    }
-  });
-});
