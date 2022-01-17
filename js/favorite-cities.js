@@ -1,7 +1,14 @@
-Notiflix.Notify.init({
-  position: "left-top",
-  borderRadius: "28px",
-});
+if (window.screen.width < 1280) {
+    Notiflix.Notify.init({
+        position: "center-center",
+        borderRadius: "28px",
+    });
+} else if (window.screen.width >= 1280) {
+    Notiflix.Notify.init({
+      position: "left-top",
+      borderRadius: "28px",
+    });
+}
 
 const searchInput = document.querySelector(".search-field__input");
 const favoriteStar = document.querySelector(".search-field__icon-star");
