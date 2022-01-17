@@ -1115,6 +1115,7 @@
   height: 30px;
   margin-top: 10px;
   font-family: "Lato", sans-serif;
+  font-weight: bold;
   font-size: 18px;
   line-height: 22px;
   display: flex;
@@ -1144,6 +1145,7 @@
   height: 20px;
   background-image: url("../images/svg/barometer.svg");
   background-repeat: no-repeat;
+  background-position: center;
   opacity: 0.54;
 }
 
@@ -1399,6 +1401,7 @@
     height: 30px;
     margin-top: 10px;
     font-family: "Lato", sans-serif;
+    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     display: flex;
@@ -1652,6 +1655,7 @@
     height: 30px;
     margin-top: 10px;
     font-family: "Lato", sans-serif;
+    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     display: flex;
