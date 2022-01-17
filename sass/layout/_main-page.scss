@@ -64,12 +64,10 @@
     &-star {
       width: 22px;
       height: 22px;
-      fill: $main-color;
       stroke: $main-color;
 
       &:hover,
       &:focus {
-        fill: #e0e000;
         stroke: #e0e000;
         cursor: pointer;
       }

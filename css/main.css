@@ -64,12 +64,10 @@
 .search-field__icon-star {
   width: 22px;
   height: 22px;
-  fill: #000000;
   stroke: #000000;
 }
 
 .search-field__icon-star:hover, .search-field__icon-star:focus {
-  fill: #e0e000;
   stroke: #e0e000;
   cursor: pointer;
 }

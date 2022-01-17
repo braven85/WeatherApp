@@ -11,6 +11,7 @@ import {
   sunCloudSvg,
   cloudySvg,
 } from './js-icons.js';
+import { checkIfCityIsFavorite } from "./favorite-cities.js";
 
 /*
 dane dotyczące ikonki pogody
@@ -21,12 +22,6 @@ dane dotyczące ikonki pogody
 else - suniceSvg */
 
 const searchInput = document.querySelector('.search-field__input');
-const favoriteStar = document.querySelector('.search-field__icon-star');
-
-favoriteStar.addEventListener('click', then => {
-  console.log('kliknales gwiazdke');
-  localStorage.setItem("miasto", searchInput.value);
-})
 
 const weatherSvg = document.getElementById('weather-box-icon').style;
 
@@ -95,9 +90,11 @@ defaultCity();
 searchInput.addEventListener('change', event => {
   event.preventDefault();
   if (searchInput.value === "") {
+    checkIfCityIsFavorite();
     defaultCity();
   } else {
     fetchCity(searchInput.value).then(res => {
+      checkIfCityIsFavorite();
       buildResponse(res);
     })
   }

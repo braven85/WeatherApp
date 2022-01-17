@@ -19,5 +19,8 @@
   "homepage": "https://braven85.github.io/weatherApp/",
   "devDependencies": {
     "snowpack": "^3.8.8"
+  },
+  "dependencies": {
+    "notiflix": "^3.2.2"
   }
 }

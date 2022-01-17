@@ -103,3 +103,8 @@ specIconsAll.forEach(icon => {
 //     data.innerHTML = "45 mm";
 //   }
 // })
+
+// for (var i = 1; i < 11; i++) { // from 1 to 10
+//     window["Object"+i] = new Object();
+// }
+// console.log(Object10); // is not undefined

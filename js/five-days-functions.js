@@ -6,6 +6,7 @@ import {
   sunCloudSvg,
   cloudySvg,
 } from "./js-icons.js";
+import { checkIfCityIsFavorite } from "./favorite-cities.js";
 
 const searchInput = document.querySelector(".search-field__input");
 
@@ -263,9 +264,11 @@ defaultCity();
 searchInput.addEventListener("change", (event) => {
   event.preventDefault();
   if (searchInput.value === "") {
+    checkIfCityIsFavorite();
     defaultCity();
   } else {
     fetchCityFiveDays(searchInput.value).then((res) => {
+      checkIfCityIsFavorite();
       buildResponse(res);
     });
   }
