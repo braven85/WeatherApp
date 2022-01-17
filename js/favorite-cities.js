@@ -1,5 +1,3 @@
-import Notiflix from "notiflix";
-
 Notiflix.Notify.init({
   position: "left-top",
   borderRadius: "28px",
