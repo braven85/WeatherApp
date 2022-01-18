@@ -1,13 +1,13 @@
 if (window.screen.width < 1280) {
-    Notiflix.Notify.init({
-        position: "center-center",
-        borderRadius: "28px",
-    });
+  Notiflix.Notify.init({
+    position: "center-center",
+    borderRadius: "28px",
+  });
 } else if (window.screen.width >= 1280) {
-    Notiflix.Notify.init({
-      position: "left-top",
-      borderRadius: "28px",
-    });
+  Notiflix.Notify.init({
+    position: "left-top",
+    borderRadius: "28px",
+  });
 }
 
 const searchInput = document.querySelector(".search-field__input");
@@ -22,6 +22,8 @@ export function checkIfCityIsFavorite() {
   for (let city of favoriteCity) {
     if (newFavoriteCity === city) {
       favoriteStar.style.stroke = "#e0e000";
+      favoriteStar.onmouseover = favoriteStarGolden;
+      favoriteStar.onmouseout = favoriteStarGolden;
       favoriteStar.style.cursor = "default";
       favoriteStar.removeEventListener("click", addFavoriteCity);
       favoriteStar.addEventListener("click", cityIsAlreadyFavorite);
@@ -100,3 +102,26 @@ function createFavCityCapsules() {
 }
 
 createFavCityCapsules();
+
+const favCitiesNumber = favoriteCityCapsule.children.length;
+const favCitiesAllCrosses = document.querySelectorAll('.fav-city__capsule-cross');
+
+function removeFavCity() {
+
+  favCitiesAllCrosses.forEach(cross => {
+    const cityNameInRemoveFunction = cross.parentElement.children[0].innerHTML;
+    cross.addEventListener("click", then => {
+      let cityIndex = favoriteCity.indexOf(cityNameInRemoveFunction);
+      for (let city of favoriteCity) {
+        if (city === cityNameInRemoveFunction) {
+          cross.parentElement.remove();
+          favoriteCity.splice(cityIndex, 1);
+          localStorage.setItem("Favorite cities", JSON.stringify(favoriteCity));
+        }
+      }
+    })
+  })
+
+}
+
+removeFavCity();
