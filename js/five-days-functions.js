@@ -6,7 +6,7 @@ import {
   sunCloudSvg,
   cloudySvg,
 } from "./js-icons.js";
-import { checkIfCityIsFavorite } from "./favorite-cities.js";
+import { checkIfCityIsFavorite } from "./favorite-five-cities.js";
 
 const searchInput = document.querySelector(".search-field__input");
 
@@ -247,7 +247,7 @@ function getTemperatures(res) {
   }
 }
 
-function buildResponse(res) {
+function buildResponseFiveDays(res) {
   getTemperatures(res);
   updateWeatherIcons();
   updateTemperatures();
@@ -255,7 +255,7 @@ function buildResponse(res) {
 
 function defaultCity() {
   fetchCityFiveDays("Skarżysko-Kamienna").then((res) => {
-    buildResponse(res);
+    buildResponseFiveDays(res);
   });
 }
 
@@ -269,7 +269,7 @@ searchInput.addEventListener("change", (event) => {
   } else {
     fetchCityFiveDays(searchInput.value).then((res) => {
       checkIfCityIsFavorite();
-      buildResponse(res);
+      buildResponseFiveDays(res);
     });
   }
 });
@@ -295,3 +295,5 @@ let dayFourIcon = document
 let dayFiveIcon = document
   .getElementById("details-5")
   .querySelector(".five-days-weather__details-image").style;
+
+export { buildResponseFiveDays };

@@ -126,12 +126,17 @@
   align-items: center;
   height: 17px;
   display: flex;
+  white-space: nowrap;
   flex-grow: 1;
   font-family: "Lato", sans-serif;
   color: #FFFFFF;
   font-size: 12px;
   line-height: 14px;
   text-decoration-line: underline;
+}
+
+.fav-city__capsule-text:hover, .fav-city__capsule-text:focus {
+  cursor: pointer;
 }
 
 .fav-city__capsule-cross {

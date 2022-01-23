@@ -1,5 +1,5 @@
-import { fetchCity } from "./fetchApi.js";
-import { buildResponseMain } from "./main-functions.js";
+import { fetchCityFiveDays } from "./fetchApi.js";
+import { buildResponseFiveDays } from "./five-days-functions.js";
 
 if (window.screen.width < 1280) {
   Notiflix.Notify.init({
@@ -155,9 +155,9 @@ favCitiesNamesInCapsules.forEach((city) => {
 function favCityNameResponsive(city) {
   city.addEventListener("click", (then) => {
     searchInput.value = city.innerHTML;
-    fetchCity(searchInput.value).then((res) => {
+    fetchCityFiveDays(searchInput.value).then((res) => {
       checkIfCityIsFavorite();
-      buildResponseMain(res);
+      buildResponseFiveDays(res);
     });
   });
 }

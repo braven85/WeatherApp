@@ -72,7 +72,7 @@ function getSunriseAndsunSet(res) {
   sunset.innerHTML = sunsetUNIX.toTimeString().slice(0, 5);
 }
 
-function buildResponse(res) {
+function buildResponseMain(res) {
   getWeatherIcon(res);
   getCityName(res);
   getTemperatures(res);
@@ -81,7 +81,7 @@ function buildResponse(res) {
 
 function defaultCity() {
   fetchCity('Skarżysko-Kamienna').then(res => {
-    buildResponse(res);
+    buildResponseMain(res);
   });
 }
 
@@ -95,7 +95,9 @@ searchInput.addEventListener('change', event => {
   } else {
     fetchCity(searchInput.value).then(res => {
       checkIfCityIsFavorite();
-      buildResponse(res);
+      buildResponseMain(res);
     })
   }
 })
+
+export { buildResponseMain };

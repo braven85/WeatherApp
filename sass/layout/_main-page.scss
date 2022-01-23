@@ -140,6 +140,7 @@
       align-items: center;
       height: 17px;
       display: flex;
+      white-space: nowrap;
       flex-grow: 1;
 
       font-family: $main-font;
@@ -147,6 +148,11 @@
       font-size: 12px;
       line-height: 14px;
       text-decoration-line: underline;
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+      }
     }
 
     &-cross {
