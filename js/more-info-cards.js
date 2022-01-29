@@ -119,22 +119,14 @@ let weatherCodes = [];
 let moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
 
 
-
 function getDataForMoreInfo(res, day) {
+  moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
   foundData = res.list;
-  // console.log(foundData);
-
-  // let dateBeforeLoop = new Date();
-  // let dateBeforeLoopTomorrow = dateBeforeLoop.setDate(
-  //   new Date(dateBeforeLoop).getDate() + 1
-  // );
-  // let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
 
   let foundDataLength = 0;
 
   for (let data of foundData) {
     if (data.dt_txt.slice(8, 10) == day) {
-      // console.log(data.dt_txt);
       moreWeatherData.hour.push(data.dt_txt.slice(11, 19));
       moreWeatherData.icon.push(data.weather[0].icon);
       moreWeatherData.temperature.push(data.main.temp);
@@ -188,9 +180,6 @@ function getDataForMoreInfo(res, day) {
     windInCard.innerHTML = `${windFromApi} m/s`;
 
   }
-
-  // console.log(moreWeatherData);
-  moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
 
 }
 

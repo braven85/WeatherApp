@@ -1,4 +1,6 @@
-import { fetchCityFiveDays } from "./fetchApi.js";
+import {
+  fetchCityFiveDays
+} from "./fetchApi.js";
 import {
   sunnySvg,
   snowySvg,
@@ -6,8 +8,12 @@ import {
   sunCloudSvg,
   cloudySvg,
 } from "./js-icons.js";
-import { checkIfCityIsFavorite } from "./favorite-five-cities.js";
-import { getDataForMoreInfo } from "./more-info-cards.js";
+import {
+  checkIfCityIsFavorite
+} from "./favorite-five-cities.js";
+import {
+  getDataForMoreInfo
+} from "./more-info-cards.js";
 
 const searchInput = document.querySelector(".search-field__input");
 
@@ -267,22 +273,50 @@ window.addEventListener('resize', then => {
 })
 
 const allFiveDaysCards = document.querySelectorAll('.five-days-weather__details');
+const allFiveDaysOfWeek = document.querySelectorAll('.five-days-weather__details-day');
+const allFiveDaysMoreInfo = document.querySelectorAll('.five-days-weather__details-more');
+const fiveDaysDetailsContainer = document.querySelector('.five-days-weather__main');
+const fiveDaysMoreInfoContainer = document.querySelector('.five-days__more');
+
+function checkSelectedCardsClasses(card) {
+  if (card.children[0].classList.contains('active-details-card')) {
+    card.children[0].classList.remove('active-details-card');
+    card.children[3].children[1].classList.remove('active-more-info');
+    fiveDaysDetailsContainer.classList.remove("active-more-info-container");
+    fiveDaysMoreInfoContainer.classList.add("hidden");
+  } else {
+    allFiveDaysOfWeek.forEach(dayOfWeek => {
+      dayOfWeek.classList.remove('active-details-card');
+    })
+    allFiveDaysMoreInfo.forEach(moreInfo => {
+      moreInfo.classList.remove('active-more-info');
+    })
+    fiveDaysDetailsContainer.classList.add("active-more-info-container");
+    fiveDaysMoreInfoContainer.classList.remove("hidden");
+    card.children[0].classList.add('active-details-card');
+    card.children[3].children[1].classList.add('active-more-info');
+  }
+}
+
 allFiveDaysCards.forEach(card => {
   card.addEventListener('click', then => {
-    // console.log(card);
     let selectedDay = 0;
-    let selectedCard = card.getAttribute('id');
-    // console.log(selectedCard.slice(8, 9));
-    if (selectedCard.slice(8, 9) === "1") {
+    let selectedCardID = card.getAttribute('id');
+    if (selectedCardID.slice(8, 9) === "1") {
       selectedDay = 0;
-    } else if (selectedCard.slice(8, 9) === "2") {
+      checkSelectedCardsClasses(card);
+    } else if (selectedCardID.slice(8, 9) === "2") {
       selectedDay = 1;
-    } else if (selectedCard.slice(8, 9) === "3") {
+      checkSelectedCardsClasses(card);
+    } else if (selectedCardID.slice(8, 9) === "3") {
       selectedDay = 2;
-    } else if (selectedCard.slice(8, 9) === "4") {
+      checkSelectedCardsClasses(card);
+    } else if (selectedCardID.slice(8, 9) === "4") {
       selectedDay = 3;
-    } else if (selectedCard.slice(8, 9) === "5") {
+      checkSelectedCardsClasses(card);
+    } else if (selectedCardID.slice(8, 9) === "5") {
       selectedDay = 4;
+      checkSelectedCardsClasses(card);
     }
     fetchCityFiveDays(searchInput.value).then((res) => {
       getDataForMoreInfo(res, dayOfMonthForMoreInfo[selectedDay]);
@@ -343,4 +377,6 @@ let dayFiveIcon = document
   .querySelector(".five-days-weather__details-image").style;
 
 
-export { buildResponseFiveDays };
+export {
+  buildResponseFiveDays
+};

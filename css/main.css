@@ -775,7 +775,7 @@
 
 .five-days-weather__main {
   max-width: 280px;
-  height: 540px;
+  height: 273px;
   background: rgba(16, 33, 54, 0.8);
   border-radius: 34px;
   box-shadow: 0px 5px 33px rgba(16, 33, 54, 0.6);
@@ -820,7 +820,6 @@
 
 .five-days-weather__details:hover, .five-days-weather__details:focus {
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .five-days-weather__details-day {
@@ -1189,6 +1188,20 @@
   display: none;
 }
 
+.active-more-info-container {
+  height: 540px;
+}
+
+.active-details-card {
+  font-family: "Lato", sans-serif;
+  color: #FF6B09;
+  opacity: 1;
+}
+
+.active-more-info {
+  opacity: 1;
+}
+
 @media screen and (min-width: 768px) {
   .five-days-weather__container {
     max-width: 620px;
@@ -1198,7 +1211,7 @@
   }
   .five-days-weather__main {
     max-width: 620px;
-    height: 571px;
+    height: 270px;
     box-shadow: 0px 8px 43px rgba(16, 33, 54, 0.6);
     justify-content: center;
   }
@@ -1455,6 +1468,12 @@
     border: 2px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(255, 255, 255, 0.2);
   }
+  .hidden {
+    display: none;
+  }
+  .active-more-info-container {
+    height: 571px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -1473,7 +1492,7 @@
   }
   .five-days-weather__main {
     max-width: 1060px;
-    height: 556px;
+    height: 308px;
   }
   .five-days-weather__city-name {
     margin-top: 0px;
@@ -1484,7 +1503,7 @@
   .five-days-weather__box-for-five {
     width: 840px;
     height: 228px;
-    margin-top: 40px;
+    margin-top: 0px;
   }
   .five-days-weather__details {
     width: 120px;
@@ -1606,8 +1625,8 @@
   }
   .five-days__more {
     width: 900px;
-    height: 238px;
-    margin: 40px auto 29px auto;
+    height: 228px;
+    margin: 20px auto 0px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1713,6 +1732,12 @@
     margin-left: 0;
     margin-right: 10%;
     margin-top: 0px;
+  }
+  .hidden {
+    display: none;
+  }
+  .active-more-info-container {
+    height: 556px;
   }
 }
 /*# sourceMappingURL=main.css.map */

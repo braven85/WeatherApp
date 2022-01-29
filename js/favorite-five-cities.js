@@ -144,6 +144,9 @@ function removeFavCity(cross) {
   });
 }
 
+const fiveDaysDetailsContainer = document.querySelector('.five-days-weather__main');
+const fiveDaysMoreInfoContainer = document.querySelector('.five-days__more');
+
 const favCitiesNamesInCapsules = document.querySelectorAll(
   ".fav-city__capsule-text"
 );
@@ -154,6 +157,14 @@ favCitiesNamesInCapsules.forEach((city) => {
 
 function favCityNameResponsive(city) {
   city.addEventListener("click", (then) => {
+    fiveDaysDetailsContainer.classList.remove("active-more-info-container");
+    fiveDaysMoreInfoContainer.classList.add("hidden");
+    for (let i = 0; i < 5; i++) {
+      if (fiveDaysDetailsContainer.children[1].children[i].children[0].classList.contains("active-details-card")) {
+        fiveDaysDetailsContainer.children[1].children[i].children[0].classList.remove("active-details-card");
+        fiveDaysDetailsContainer.children[1].children[i].children[3].children[1].classList.remove("active-more-info");
+      }
+    }
     searchInput.value = city.innerHTML;
     fetchCityFiveDays(searchInput.value).then((res) => {
       checkIfCityIsFavorite();

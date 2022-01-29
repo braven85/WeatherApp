@@ -25,8 +25,8 @@
 
     &__main {
       max-width: 280px;
-      //height: 273px; // przed kliknieciem
-      height: 540px; // po kliknieciu
+      height: 273px; // przed kliknieciem
+      // height: 540px; // po kliknieciu
       background: rgba(16, 33, 54, 0.8);
       border-radius: 34px;
       box-shadow: 0px 5px 33px rgba(16, 33, 54, 0.6);
@@ -72,7 +72,6 @@
       &:hover,
       &:focus {
         cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       &-day {
@@ -424,6 +423,20 @@
   display: none;
 }
 
+.active-more-info-container {
+  height: 540px; // po kliknieciu
+}
+
+.active-details-card {
+  font-family: $main-font;
+  color: $secondary-font-color;
+  opacity: 1;
+}
+
+.active-more-info {
+  opacity: 1;
+}
+
 // TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
 // TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
 // TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET TABLET
@@ -443,9 +456,11 @@
         margin-top: 25px;
         margin-bottom: 53px;
       }
+
       &__main {
         max-width: 620px;
-        height: 571px;
+        height: 270px;
+        // height: 571px;
         box-shadow: 0px 8px 43px rgba(16, 33, 54, 0.6);
         justify-content: center;
       }
@@ -503,16 +518,14 @@
 
           &__up {
             width: 49px;
-            @include min-max(
-              $main-font,
+            @include min-max($main-font,
               $dark-bg-main-color,
               14px,
               17px,
               flex,
               center,
               center,
-              center
-            );
+              center);
             opacity: 0.55;
           }
 
@@ -536,16 +549,14 @@
 
           &__up {
             width: 49px;
-            @include min-max(
-              $main-font,
+            @include min-max($main-font,
               $dark-bg-main-color,
               14px,
               17px,
               flex,
               center,
               center,
-              center
-            );
+              center);
             opacity: 0.55;
           }
 
@@ -559,16 +570,14 @@
 
         &-more {
           margin-top: 20px;
-          @include min-max(
-            $main-font,
+          @include min-max($main-font,
             $dark-bg-main-color,
             14px,
             17px,
             flex,
             center,
             center,
-            center
-          );
+            center);
           font-weight: bold;
           margin-left: auto;
           margin-right: auto;
@@ -616,135 +625,135 @@
       }
     }
 
-  // ===============================================================================
-  // ===============================================================================
-  // ===============================================================================
+    // ===============================================================================
+    // ===============================================================================
+    // ===============================================================================
 
-  &__more {
-    width: (120px * 3) + 20px;
-    height: 238px;
-    margin: 40px auto 29px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    &-cards {
+    &__more {
       width: (120px * 3) + 20px;
-      height: 218px;
-      display: flex;
-      justify-content: space-evenly;
-    }
-
-    &-card {
-      width: 120px;
-      height: 218px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-sizing: border-box;
-      border-radius: 25px;
-
-      &-inside {
-        width: 88px;
-        height: 185px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        &-hour {
-          width: 82px;
-          height: 20px;
-
-          font-family: $main-font;
-          font-size: 14px;
-          line-height: 17px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: $dark-bg-main-color;
-          opacity: 0.54;
-        }
-
-        &-icon {
-          &-con {
-            width: 35px;
-            height: 35px;
-            margin-top: 10px;
-          }
-
-          width: 35px;
-          height: 35px;
-          background-image: url("../images/svg/sunice.svg");
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        &-temp {
-          width: 50px;
-          height: 30px;
-          margin-top: 10px;
-
-          font-family: $main-font;
-          font-weight: bold;
-          font-size: 18px;
-          line-height: 22px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: $secondary-font-color;
-        }
-      }
-    }
-
-    &-spec {
-      width: 88px;
-      height: 70px;
-      margin-top: 10px;
+      height: 238px;
+      margin: 40px auto 29px auto;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
 
-      &-field {
-        width: 88px;
-        height: 20px;
+      &-cards {
+        width: (120px * 3) + 20px;
+        height: 218px;
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
+        justify-content: space-evenly;
+      }
 
-        &-icon {
-          width: 20px;
-          height: 20px;
-          background-image: url("../images/svg/barometer.svg");
-          background-repeat: no-repeat;
-          opacity: 0.54;
-        }
+      &-card {
+        width: 120px;
+        height: 218px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        &-data {
-          width: 61px;
-          height: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-sizing: border-box;
+        border-radius: 25px;
 
-          font-family: $main-font;
-          font-size: 14px;
-          line-height: 17px;
+        &-inside {
+          width: 88px;
+          height: 185px;
           display: flex;
+          flex-direction: column;
           align-items: center;
-          color: $main-font-color;
-          opacity: 0.54;
+
+          &-hour {
+            width: 82px;
+            height: 20px;
+
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $dark-bg-main-color;
+            opacity: 0.54;
+          }
+
+          &-icon {
+            &-con {
+              width: 35px;
+              height: 35px;
+              margin-top: 10px;
+            }
+
+            width: 35px;
+            height: 35px;
+            background-image: url("../images/svg/sunice.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          &-temp {
+            width: 50px;
+            height: 30px;
+            margin-top: 10px;
+
+            font-family: $main-font;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $secondary-font-color;
+          }
         }
+      }
+
+      &-spec {
+        width: 88px;
+        height: 70px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+
+        &-field {
+          width: 88px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+
+          &-icon {
+            width: 20px;
+            height: 20px;
+            background-image: url("../images/svg/barometer.svg");
+            background-repeat: no-repeat;
+            opacity: 0.54;
+          }
+
+          &-data {
+            width: 61px;
+            height: 20px;
+
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            align-items: center;
+            color: $main-font-color;
+            opacity: 0.54;
+          }
+        }
+      }
+
+      &-line {
+        width: 250px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
       }
     }
 
-    &-line {
-      width: 250px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  // ==================================================================
-  // ==================================================================
-  // ==================================================================
+    // ==================================================================
+    // ==================================================================
+    // ==================================================================
   }
 
   // .buttons {
@@ -754,6 +763,14 @@
   //     }
   //   }
   // }
+
+  .hidden {
+    display: none;
+  }
+
+  .active-more-info-container {
+    height: 571px; // po kliknieciu
+  }
 
 
 }
@@ -788,7 +805,8 @@
 
       &__main {
         max-width: 1060px;
-        height: 556px;
+        // height: 556px;
+        height: 308px;
       }
 
       &__city-name {
@@ -801,7 +819,7 @@
       &__box-for-five {
         width: 120px * 5 + (4 * 60px);
         height: 228px;
-        margin-top: 40px;
+        margin-top: 0px;
       }
 
       &__details {
@@ -842,17 +860,16 @@
 
           &__up {
             width: 50px;
-            @include min-max(
-              $main-font,
+            @include min-max($main-font,
               $dark-bg-main-color,
               18px,
               22px,
               flex,
               center,
               center,
-              center
-            );
+              center);
           }
+
           &__down {
             width: 50px;
             @include min-max($main-font, #ff6b09, 25px, 30px, flex, center, center, center);
@@ -871,16 +888,14 @@
 
           &__up {
             width: 50px;
-            @include min-max(
-              $main-font,
+            @include min-max($main-font,
               $dark-bg-main-color,
               18px,
               22px,
               flex,
               center,
               center,
-              center
-            );
+              center);
           }
 
           &__down {
@@ -935,135 +950,135 @@
       }
     }
 
-      // ===============================================================================
-  // ===============================================================================
-  // ===============================================================================
+    // ===============================================================================
+    // ===============================================================================
+    // ===============================================================================
 
-  &__more {
-    width: (120px * 7) + (10px * 6);
-    height: 238px;
-    margin: 40px auto 29px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    &-cards {
+    &__more {
       width: (120px * 7) + (10px * 6);
-      height: 218px;
-      display: flex;
-      justify-content: space-evenly;
-    }
-
-    &-card {
-      width: 120px;
-      height: 218px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-sizing: border-box;
-      border-radius: 25px;
-
-      &-inside {
-        width: 88px;
-        height: 185px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        &-hour {
-          width: 82px;
-          height: 20px;
-
-          font-family: $main-font;
-          font-size: 14px;
-          line-height: 17px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: $dark-bg-main-color;
-          opacity: 0.54;
-        }
-
-        &-icon {
-          &-con {
-            width: 35px;
-            height: 35px;
-            margin-top: 10px;
-          }
-
-          width: 35px;
-          height: 35px;
-          background-image: url("../images/svg/sunice.svg");
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        &-temp {
-          width: 50px;
-          height: 30px;
-          margin-top: 10px;
-
-          font-family: $main-font;
-          font-weight: bold;
-          font-size: 18px;
-          line-height: 22px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: $secondary-font-color;
-        }
-      }
-    }
-
-    &-spec {
-      width: 88px;
-      height: 70px;
-      margin-top: 10px;
+      height: 228px;
+      margin: 20px auto 0px auto;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
 
-      &-field {
-        width: 88px;
-        height: 20px;
+      &-cards {
+        width: (120px * 7) + (10px * 6);
+        height: 218px;
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
+        justify-content: space-evenly;
+      }
 
-        &-icon {
-          width: 20px;
-          height: 20px;
-          background-image: url("../images/svg/barometer.svg");
-          background-repeat: no-repeat;
-          opacity: 0.54;
-        }
+      &-card {
+        width: 120px;
+        height: 218px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        &-data {
-          width: 61px;
-          height: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-sizing: border-box;
+        border-radius: 25px;
 
-          font-family: $main-font;
-          font-size: 14px;
-          line-height: 17px;
+        &-inside {
+          width: 88px;
+          height: 185px;
           display: flex;
+          flex-direction: column;
           align-items: center;
-          color: $main-font-color;
-          opacity: 0.54;
+
+          &-hour {
+            width: 82px;
+            height: 20px;
+
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $dark-bg-main-color;
+            opacity: 0.54;
+          }
+
+          &-icon {
+            &-con {
+              width: 35px;
+              height: 35px;
+              margin-top: 10px;
+            }
+
+            width: 35px;
+            height: 35px;
+            background-image: url("../images/svg/sunice.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          &-temp {
+            width: 50px;
+            height: 30px;
+            margin-top: 10px;
+
+            font-family: $main-font;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $secondary-font-color;
+          }
         }
+      }
+
+      &-spec {
+        width: 88px;
+        height: 70px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+
+        &-field {
+          width: 88px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+
+          &-icon {
+            width: 20px;
+            height: 20px;
+            background-image: url("../images/svg/barometer.svg");
+            background-repeat: no-repeat;
+            opacity: 0.54;
+          }
+
+          &-data {
+            width: 61px;
+            height: 20px;
+
+            font-family: $main-font;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            align-items: center;
+            color: $main-font-color;
+            opacity: 0.54;
+          }
+        }
+      }
+
+      &-line {
+        width: 250px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
       }
     }
 
-    &-line {
-      width: 250px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  // ==================================================================
-  // ==================================================================
-  // ==================================================================
+    // ==================================================================
+    // ==================================================================
+    // ==================================================================
   }
 
   .buttons {
@@ -1074,6 +1089,14 @@
         margin-top: 0px;
       }
     }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .active-more-info-container {
+    height: 556px; // po kliknieciu
   }
 
 }
