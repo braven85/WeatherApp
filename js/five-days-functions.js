@@ -248,11 +248,30 @@ function getTemperatures(res) {
   }
 }
 
+let dayOfMonthForMoreInfo = [];
+const daysOfMonth = document.querySelectorAll('.five-days-weather__details-month');
+daysOfMonth.forEach(day => {
+  dayOfMonthForMoreInfo.push(day.innerHTML.slice(0, 2));
+})
+
+function checkHowManyCardsAreGenerated() {
+  for (let i = 1; i <= 7; i++) {
+    if (document.getElementById(`more-hour${i}`).innerHTML === '') {
+      document.getElementById(`more-${i}`).style.display = 'none';
+    }
+  }
+}
+
+window.addEventListener('resize', then => {
+  checkHowManyCardsAreGenerated();
+})
+
 function buildResponseFiveDays(res) {
   getTemperatures(res);
   updateWeatherIcons();
   updateTemperatures();
-  getDataForMoreInfo(res);
+  getDataForMoreInfo(res, dayOfMonthForMoreInfo[0]);
+  checkHowManyCardsAreGenerated();
 }
 
 function defaultCity() {
@@ -297,5 +316,6 @@ let dayFourIcon = document
 let dayFiveIcon = document
   .getElementById("details-5")
   .querySelector(".five-days-weather__details-image").style;
+
 
 export { buildResponseFiveDays };

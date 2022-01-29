@@ -815,6 +815,12 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  border-radius: 25px;
+}
+
+.five-days-weather__details:hover, .five-days-weather__details:focus {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .five-days-weather__details-day {
@@ -1356,7 +1362,7 @@
     width: 380px;
     height: 218px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
   .five-days__more-card {
     width: 120px;
@@ -1610,7 +1616,7 @@
     width: 900px;
     height: 218px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
   .five-days__more-card {
     width: 120px;

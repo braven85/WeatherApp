@@ -1,4 +1,3 @@
-import { fetchCityFiveDays } from "./fetchApi.js";
 import {
   windSvg,
   humiditySvg,
@@ -8,6 +7,7 @@ import {
   cloudySvg,
   suniceSvg,
 } from "./js-icons.js";
+
 
 const moreInfoCardsContainer = document.querySelector(".five-days__more-cards");
 const moreInfoLine = document.querySelector(".five-days__more-line");
@@ -118,29 +118,34 @@ let maxTemperatures = [0, 0, 0, 0, 0];
 let weatherCodes = [];
 let moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
 
-function getDataForMoreInfo(res) {
+
+
+function getDataForMoreInfo(res, day) {
   foundData = res.list;
   // console.log(foundData);
 
-  let dateBeforeLoop = new Date();
-  let dateBeforeLoopTomorrow = dateBeforeLoop.setDate(
-    new Date(dateBeforeLoop).getDate() + 1
-  );
-  let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
+  // let dateBeforeLoop = new Date();
+  // let dateBeforeLoopTomorrow = dateBeforeLoop.setDate(
+  //   new Date(dateBeforeLoop).getDate() + 1
+  // );
+  // let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
+
+  let foundDataLength = 0;
 
   for (let data of foundData) {
-    if (data.dt_txt.slice(8, 10) == dateForLoop) {
-      // console.log(data);
+    if (data.dt_txt.slice(8, 10) == day) {
+      // console.log(data.dt_txt);
       moreWeatherData.hour.push(data.dt_txt.slice(11, 19));
       moreWeatherData.icon.push(data.weather[0].icon);
       moreWeatherData.temperature.push(data.main.temp);
       moreWeatherData.pressure.push(data.main.pressure);
       moreWeatherData.humidity.push(data.main.humidity);
       moreWeatherData.wind.push(data.wind.speed);
+      foundDataLength++;
     }
   }
 
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 1; i <= foundDataLength-1; i++) {
     let hourID = `more-hour${i}`;
     let hourOnCard = document.getElementById(`${hourID}`);
     let hourFromApi = moreWeatherData.hour[i].slice(0, 5);

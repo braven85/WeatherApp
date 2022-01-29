@@ -67,6 +67,13 @@
       margin-left: auto;
       margin-right: auto;
       display: block;
+      border-radius: 25px;
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
 
       &-day {
         width: 90%;
@@ -625,7 +632,7 @@
       width: (120px * 3) + 20px;
       height: 218px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
 
     &-card {
@@ -944,7 +951,7 @@
       width: (120px * 7) + (10px * 6);
       height: 218px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
 
     &-card {
