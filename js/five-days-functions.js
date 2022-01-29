@@ -7,6 +7,7 @@ import {
   cloudySvg,
 } from "./js-icons.js";
 import { checkIfCityIsFavorite } from "./favorite-five-cities.js";
+import { getDataForMoreInfo } from "./more-info-cards.js";
 
 const searchInput = document.querySelector(".search-field__input");
 
@@ -251,6 +252,7 @@ function buildResponseFiveDays(res) {
   getTemperatures(res);
   updateWeatherIcons();
   updateTemperatures();
+  getDataForMoreInfo(res);
 }
 
 function defaultCity() {

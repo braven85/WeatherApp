@@ -1,7 +1,12 @@
+import { fetchCityFiveDays } from "./fetchApi.js";
 import {
   windSvg,
   humiditySvg,
   barometerSvg,
+  sunnySvg,
+  sunCloudSvg,
+  cloudySvg,
+  suniceSvg,
 } from "./js-icons.js";
 
 const moreInfoCardsContainer = document.querySelector(".five-days__more-cards");
@@ -11,23 +16,23 @@ for (let i = 1; i <= 7; i++) {
     moreInfoCardsContainer.innerHTML += `<div class="five-days__more-card" id="more-${i}">
 
                     <div class="five-days__more-card-inside">
-                      <div class="five-days__more-card-inside-hour">00:00</div>
+                      <div class="five-days__more-card-inside-hour" id="more-hour${i}"></div>
                       <div class="five-days__more-card-inside-icon-con">
-                        <svg class="five-days__more-card-inside-icon"></svg>
+                        <svg class="five-days__more-card-inside-icon" id="more-icon${i}"></svg>
                       </div>
-                      <div class="five-days__more-card-inside-temp">-2°</div>
+                      <div class="five-days__more-card-inside-temp" id="more-temp${i}"></div>
                       <div class="five-days__more-spec">
                         <div class="five-days__more-spec-field">
                           <svg class="five-days__more-spec-field-icon" id="spec-icon${i}1"></svg>
-                          <div class="five-days__more-spec-field-data" id="spec-data${i}1">772 mm</div>
+                          <div class="five-days__more-spec-field-data" id="spec-data${i}1"></div>
                         </div>
                         <div class="five-days__more-spec-field">
                           <svg class="five-days__more-spec-field-icon" id="spec-icon${i}2"></svg>
-                          <div class="five-days__more-spec-field-data" id="spec-data${i}2">54%</div>
+                          <div class="five-days__more-spec-field-data" id="spec-data${i}2"></div>
                         </div>
                         <div class="five-days__more-spec-field">
                           <svg class="five-days__more-spec-field-icon" id="spec-icon${i}3"></svg>
-                          <div class="five-days__more-spec-field-data" id="spec-data${i}3">3.7 m/s</div>
+                          <div class="five-days__more-spec-field-data" id="spec-data${i}3"></div>
                         </div>
                       </div>
                     </div>
@@ -84,7 +89,7 @@ const specIconsAll = document.querySelectorAll('.five-days__more-spec-field-icon
 
 // generowanie ikonek barometr, wilgotność oraz wiatr w kartach
 specIconsAll.forEach(icon => {
-  const iconId = icon.getAttribute('id').slice(10,11);
+  const iconId = icon.getAttribute('id').slice(10, 11);
   if (iconId == 1) {
     icon.style.backgroundImage = barometerSvg;
   } else if (iconId == 2) {
@@ -94,17 +99,94 @@ specIconsAll.forEach(icon => {
   }
 })
 
-// const specDataAll = document.querySelectorAll('.five-days__more-spec-field-data');
+const moreInfoContainer = document.querySelector(".five-days__more");
+const moreInfoButtons = document.querySelectorAll(
+  ".five-days-weather__details-more"
+);
 
-// specDataAll.forEach(data => {
-//   const dataFieldId = data.getAttribute('id').slice(10,11);
-//   console.log(dataFieldId);
-//   if (dataFieldId == 1) {
-//     data.innerHTML = "45 mm";
-//   }
-// })
+moreInfoButtons.forEach(button => {
+  button.addEventListener('click', then => {
+    moreInfoContainer.style.display = 'flex';
+  })
+})
 
-// for (var i = 1; i < 11; i++) { // from 1 to 10
-//     window["Object"+i] = new Object();
-// }
-// console.log(Object10); // is not undefined
+let foundData;
+const hourToCheckMin = "06:00:00";
+const hourToCheckMax = "12:00:00";
+let minTemperatures = [0, 0, 0, 0, 0];
+let maxTemperatures = [0, 0, 0, 0, 0];
+let weatherCodes = [];
+let moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
+
+function getDataForMoreInfo(res) {
+  foundData = res.list;
+  // console.log(foundData);
+
+  let dateBeforeLoop = new Date();
+  let dateBeforeLoopTomorrow = dateBeforeLoop.setDate(
+    new Date(dateBeforeLoop).getDate() + 1
+  );
+  let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
+
+  for (let data of foundData) {
+    if (data.dt_txt.slice(8, 10) == dateForLoop) {
+      // console.log(data);
+      moreWeatherData.hour.push(data.dt_txt.slice(11, 19));
+      moreWeatherData.icon.push(data.weather[0].icon);
+      moreWeatherData.temperature.push(data.main.temp);
+      moreWeatherData.pressure.push(data.main.pressure);
+      moreWeatherData.humidity.push(data.main.humidity);
+      moreWeatherData.wind.push(data.wind.speed);
+    }
+  }
+
+  for (let i = 1; i <= 7; i++) {
+    let hourID = `more-hour${i}`;
+    let hourOnCard = document.getElementById(`${hourID}`);
+    let hourFromApi = moreWeatherData.hour[i].slice(0, 5);
+    hourOnCard.innerHTML = hourFromApi;
+
+    let iconID = `more-icon${i}`;
+    let iconOnCard = document.getElementById(`${iconID}`);
+    let iconFromApi = moreWeatherData.icon[i];
+
+    if (iconFromApi == "01d") {
+      iconOnCard.style.backgroundImage = `${sunnySvg}`;
+    } else if (iconFromApi == "02d") {
+      iconOnCard.style.backgroundImage = `${sunCloudSvg}`;
+    } else if (iconFromApi == "03d" || iconFromApi == "04d") {
+      iconOnCard.style.backgroundImage = `${cloudySvg}`;
+    } else if (iconFromApi == "13d") {
+      iconOnCard.style.backgroundImage = `${suniceSvg}`;
+    } else {
+      iconOnCard.style.backgroundImage = `${suniceSvg}`;
+    }
+
+    let tempID = `more-temp${i}`;
+    let tempInCard = document.getElementById(`${tempID}`);
+    let tempFromApi = Math.round(moreWeatherData.temperature[i]);
+    tempInCard.innerHTML = `${tempFromApi}°`;
+
+    let pressureID = `spec-data${i}1`;
+    let pressureInCard = document.getElementById(`${pressureID}`);
+    let pressureFromApi = moreWeatherData.pressure[i];
+    pressureInCard.innerHTML = `${pressureFromApi} hPa`;
+
+    let humidityID = `spec-data${i}2`;
+    let humidityInCard = document.getElementById(`${humidityID}`);
+    let humidityFromApi = moreWeatherData.humidity[i];
+    humidityInCard.innerHTML = `${humidityFromApi} %`;
+
+    let windID = `spec-data${i}3`;
+    let windInCard = document.getElementById(`${windID}`);
+    let windFromApi = moreWeatherData.wind[i];
+    windInCard.innerHTML = `${windFromApi} m/s`;
+
+  }
+
+  // console.log(moreWeatherData);
+  moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
+
+}
+
+export { getDataForMoreInfo };
