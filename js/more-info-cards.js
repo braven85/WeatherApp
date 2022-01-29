@@ -111,11 +111,6 @@ moreInfoButtons.forEach(button => {
 })
 
 let foundData;
-const hourToCheckMin = "06:00:00";
-const hourToCheckMax = "12:00:00";
-let minTemperatures = [0, 0, 0, 0, 0];
-let maxTemperatures = [0, 0, 0, 0, 0];
-let weatherCodes = [];
 let moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
 
 
@@ -179,6 +174,12 @@ function getDataForMoreInfo(res, day) {
     let windFromApi = moreWeatherData.wind[i];
     windInCard.innerHTML = `${windFromApi} m/s`;
 
+  }
+
+  if (foundDataLength === 7) {
+    document.getElementById(`more-7`).style.display = 'none';
+  } else {
+    document.getElementById(`more-7`).style.display = 'flex';
   }
 
 }

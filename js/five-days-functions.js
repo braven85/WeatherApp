@@ -260,17 +260,17 @@ daysOfMonth.forEach(day => {
   dayOfMonthForMoreInfo.push(day.innerHTML.slice(0, 2));
 })
 
-function checkHowManyCardsAreGenerated() {
-  for (let i = 1; i <= 7; i++) {
-    if (document.getElementById(`more-hour${i}`).innerHTML === '') {
-      document.getElementById(`more-${i}`).style.display = 'none';
-    }
-  }
-}
+// function checkHowManyCardsAreGenerated() {
+//   for (let i = 1; i <= 7; i++) {
+//     if (document.getElementById(`more-hour${i}`).innerHTML === '') {
+//       document.getElementById(`more-${i}`).style.display = 'none';
+//     }
+//   }
+// }
 
-window.addEventListener('resize', then => {
-  checkHowManyCardsAreGenerated();
-})
+// window.addEventListener('resize', then => {
+//   checkHowManyCardsAreGenerated();
+// })
 
 const allFiveDaysCards = document.querySelectorAll('.five-days-weather__details');
 const allFiveDaysOfWeek = document.querySelectorAll('.five-days-weather__details-day');
@@ -329,7 +329,7 @@ function buildResponseFiveDays(res) {
   updateWeatherIcons();
   updateTemperatures();
   getDataForMoreInfo(res, dayOfMonthForMoreInfo[0]);
-  checkHowManyCardsAreGenerated();
+  // checkHowManyCardsAreGenerated();
 }
 
 function defaultCity() {
