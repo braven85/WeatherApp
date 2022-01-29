@@ -80,6 +80,7 @@ function buildResponseMain(res) {
 }
 
 function defaultCity() {
+  searchInput.value = "Skarżysko-Kamienna";
   fetchCity('Skarżysko-Kamienna').then(res => {
     buildResponseMain(res);
   });

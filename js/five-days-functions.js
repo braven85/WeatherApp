@@ -266,6 +266,30 @@ window.addEventListener('resize', then => {
   checkHowManyCardsAreGenerated();
 })
 
+const allFiveDaysCards = document.querySelectorAll('.five-days-weather__details');
+allFiveDaysCards.forEach(card => {
+  card.addEventListener('click', then => {
+    // console.log(card);
+    let selectedDay = 0;
+    let selectedCard = card.getAttribute('id');
+    // console.log(selectedCard.slice(8, 9));
+    if (selectedCard.slice(8, 9) === "1") {
+      selectedDay = 0;
+    } else if (selectedCard.slice(8, 9) === "2") {
+      selectedDay = 1;
+    } else if (selectedCard.slice(8, 9) === "3") {
+      selectedDay = 2;
+    } else if (selectedCard.slice(8, 9) === "4") {
+      selectedDay = 3;
+    } else if (selectedCard.slice(8, 9) === "5") {
+      selectedDay = 4;
+    }
+    fetchCityFiveDays(searchInput.value).then((res) => {
+      getDataForMoreInfo(res, dayOfMonthForMoreInfo[selectedDay]);
+    });
+  })
+})
+
 function buildResponseFiveDays(res) {
   getTemperatures(res);
   updateWeatherIcons();
@@ -275,6 +299,7 @@ function buildResponseFiveDays(res) {
 }
 
 function defaultCity() {
+  searchInput.value = "Skarżysko-Kamienna";
   fetchCityFiveDays("Skarżysko-Kamienna").then((res) => {
     buildResponseFiveDays(res);
   });
