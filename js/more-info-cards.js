@@ -182,39 +182,15 @@ function getDataForMoreInfo(res, day) {
 
 function checkFoundDataLength() {
   if (foundDataLength === 8) {
-    document.getElementById(`more-7`).style.display = 'flex';
-    document.getElementById(`more-6`).style.display = 'flex';
-    document.getElementById(`more-5`).style.display = 'flex';
-    document.getElementById(`more-4`).style.display = 'flex';
-    document.getElementById(`more-3`).style.display = 'flex';
-    document.getElementById(`more-2`).style.display = 'flex';
-  } else if (foundDataLength === 7) {
-    document.getElementById(`more-7`).style.display = 'none';
-  } else if (foundDataLength === 6) {
-    document.getElementById(`more-7`).style.display = 'none';
-    document.getElementById(`more-6`).style.display = 'none';
-  } else if (foundDataLength === 5) {
-    document.getElementById(`more-7`).style.display = 'none';
-    document.getElementById(`more-6`).style.display = 'none';
-    document.getElementById(`more-5`).style.display = 'none';
-  } else if (foundDataLength === 4) {
-    document.getElementById(`more-7`).style.display = 'none';
-    document.getElementById(`more-6`).style.display = 'none';
-    document.getElementById(`more-5`).style.display = 'none';
-    document.getElementById(`more-4`).style.display = 'none';
-  } else if (foundDataLength === 3) {
-    document.getElementById(`more-7`).style.display = 'none';
-    document.getElementById(`more-6`).style.display = 'none';
-    document.getElementById(`more-5`).style.display = 'none';
-    document.getElementById(`more-4`).style.display = 'none';
-    document.getElementById(`more-3`).style.display = 'none';
-  } else if (foundDataLength === 2) {
-    document.getElementById(`more-7`).style.display = 'none';
-    document.getElementById(`more-6`).style.display = 'none';
-    document.getElementById(`more-5`).style.display = 'none';
-    document.getElementById(`more-4`).style.display = 'none';
-    document.getElementById(`more-3`).style.display = 'none';
-    document.getElementById(`more-2`).style.display = 'none';
+    for (let i = 1; i < foundDataLength; i++) {
+      document.getElementById(`more-${i}`).style.display = 'flex';
+    }
+  } else if (foundDataLength < 8) {
+    for (let i = 7; i >= foundDataLength; i--) {
+      document.getElementById(`more-${i}`).style.display = 'none';
+    }
+  } else {
+    console.error("foundDataLength ma nieprawidłową wartość");
   }
 }
 
