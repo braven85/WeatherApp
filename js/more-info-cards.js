@@ -112,13 +112,13 @@ moreInfoButtons.forEach(button => {
 
 let foundData;
 let moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
+let foundDataLength = 0;
 
 
 function getDataForMoreInfo(res, day) {
   moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
   foundData = res.list;
-
-  let foundDataLength = 0;
+  foundDataLength = 0;
 
   for (let data of foundData) {
     if (data.dt_txt.slice(8, 10) == day) {
@@ -176,12 +176,46 @@ function getDataForMoreInfo(res, day) {
 
   }
 
-  if (foundDataLength === 7) {
-    document.getElementById(`more-7`).style.display = 'none';
-  } else {
-    document.getElementById(`more-7`).style.display = 'flex';
-  }
+  checkFoundDataLength();
 
+}
+
+function checkFoundDataLength() {
+  if (foundDataLength === 8) {
+    document.getElementById(`more-7`).style.display = 'flex';
+    document.getElementById(`more-6`).style.display = 'flex';
+    document.getElementById(`more-5`).style.display = 'flex';
+    document.getElementById(`more-4`).style.display = 'flex';
+    document.getElementById(`more-3`).style.display = 'flex';
+    document.getElementById(`more-2`).style.display = 'flex';
+  } else if (foundDataLength === 7) {
+    document.getElementById(`more-7`).style.display = 'none';
+  } else if (foundDataLength === 6) {
+    document.getElementById(`more-7`).style.display = 'none';
+    document.getElementById(`more-6`).style.display = 'none';
+  } else if (foundDataLength === 5) {
+    document.getElementById(`more-7`).style.display = 'none';
+    document.getElementById(`more-6`).style.display = 'none';
+    document.getElementById(`more-5`).style.display = 'none';
+  } else if (foundDataLength === 4) {
+    document.getElementById(`more-7`).style.display = 'none';
+    document.getElementById(`more-6`).style.display = 'none';
+    document.getElementById(`more-5`).style.display = 'none';
+    document.getElementById(`more-4`).style.display = 'none';
+  } else if (foundDataLength === 3) {
+    document.getElementById(`more-7`).style.display = 'none';
+    document.getElementById(`more-6`).style.display = 'none';
+    document.getElementById(`more-5`).style.display = 'none';
+    document.getElementById(`more-4`).style.display = 'none';
+    document.getElementById(`more-3`).style.display = 'none';
+  } else if (foundDataLength === 2) {
+    document.getElementById(`more-7`).style.display = 'none';
+    document.getElementById(`more-6`).style.display = 'none';
+    document.getElementById(`more-5`).style.display = 'none';
+    document.getElementById(`more-4`).style.display = 'none';
+    document.getElementById(`more-3`).style.display = 'none';
+    document.getElementById(`more-2`).style.display = 'none';
+  }
 }
 
 export { getDataForMoreInfo };
