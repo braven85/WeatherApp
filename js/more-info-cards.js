@@ -12,6 +12,7 @@ import {
 const moreInfoCardsContainer = document.querySelector(".five-days__more-cards");
 const moreInfoLine = document.querySelector(".five-days__more-line");
 
+// a "for loop" that generates "more info cards"
 for (let i = 1; i <= 7; i++) {
   moreInfoCardsContainer.innerHTML += `<div class="five-days__more-card" id="more-${i}">
 
@@ -40,6 +41,7 @@ for (let i = 1; i <= 7; i++) {
                   </div>`;
 }
 
+// function that generates "more info cards" depending on screen resolution
 function moreInfoCardsRules() {
   if (window.screen.width < 768) {
     for (let i = 1; i <= 2; i++) {

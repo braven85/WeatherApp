@@ -21,8 +21,6 @@ const cityNameInside = document.getElementById("city-inside");
 const cityNameOutside = document.getElementById("city-outside");
 
 let foundCityTemperatures;
-const hourToCheckMin = "06:00:00";
-const hourToCheckMax = "12:00:00";
 let minTemperatures = [0, 0, 0, 0, 0];
 let maxTemperatures = [0, 0, 0, 0, 0];
 let weatherCodes = [];
@@ -218,6 +216,8 @@ function updateTemperatures() {
   dayFiveMaxTemp.innerHTML = maxTemperatures[4] + "°";
 }
 
+let minMaxTempAndIconsForAllDays = {}
+
 function getTemperatures(res) {
   cityNameInside.innerHTML = res.city.name;
   cityNameOutside.innerHTML = res.city.name;
@@ -229,21 +229,22 @@ function getTemperatures(res) {
   );
   let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
 
+  minMaxTempAndIconsForAllDays = {}
+  weatherCodes = [];
+  let tempTableLength = 0;
+  let minTemp = 0;
+  let maxTemp = 0;
+
   for (let i = 0; i <= 4; i++) {
+    minMaxTempAndIconsForAllDays[i] = {hour: [], tempMin: [], tempMax: [], icon: []};
     for (let temp of foundCityTemperatures) {
       if (
-        temp.dt_txt.slice(8, 10) == dateForLoop &&
-        temp.dt_txt.slice(11, 19) == hourToCheckMin
+        temp.dt_txt.slice(8, 10) == dateForLoop
       ) {
-        minTemperatures[i] = Math.round(temp.main.temp_min);
-      } else if (
-        temp.dt_txt.slice(8, 10) == dateForLoop &&
-        temp.dt_txt.slice(11, 19) == hourToCheckMax
-      ) {
-        maxTemperatures[i] = Math.round(temp.main.temp_max);
-        weatherCodes[i] = temp.weather[0].icon;
-      } else {
-        continue;
+        minMaxTempAndIconsForAllDays[i].hour.push((temp.dt_txt).slice(11, 16));
+        minMaxTempAndIconsForAllDays[i].tempMin.push(temp.main.temp_min);
+        minMaxTempAndIconsForAllDays[i].tempMax.push(temp.main.temp_max);
+        minMaxTempAndIconsForAllDays[i].icon.push(temp.weather[0].icon);
       }
     }
 
@@ -251,26 +252,36 @@ function getTemperatures(res) {
       new Date(dateBeforeLoop).getDate() + 1
     );
     dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
+
+    weatherCodes[i] = minMaxTempAndIconsForAllDays[i].icon[4];
+
+    tempTableLength = (minMaxTempAndIconsForAllDays[i].tempMin).length;
+
+    minTemp = minMaxTempAndIconsForAllDays[i].tempMin[0];
+    maxTemp = minMaxTempAndIconsForAllDays[i].tempMax[0];
+    
+    for (let j = 0; j < tempTableLength; j++) {
+      if (minMaxTempAndIconsForAllDays[i].tempMin[j] < minTemp) {
+        minTemp = minMaxTempAndIconsForAllDays[i].tempMin[j];
+      }
+      if (minMaxTempAndIconsForAllDays[i].tempMax[j] > maxTemp) {
+        maxTemp = minMaxTempAndIconsForAllDays[i].tempMax[j];
+      }
+    }
+    
+    minTemperatures[i] = Math.round(minTemp);
+    maxTemperatures[i] = Math.round(maxTemp);
+
   }
+
 }
+
 
 let dayOfMonthForMoreInfo = [];
 const daysOfMonth = document.querySelectorAll('.five-days-weather__details-month');
 daysOfMonth.forEach(day => {
   dayOfMonthForMoreInfo.push(day.innerHTML.slice(0, 2));
 })
-
-// function checkHowManyCardsAreGenerated() {
-//   for (let i = 1; i <= 7; i++) {
-//     if (document.getElementById(`more-hour${i}`).innerHTML === '') {
-//       document.getElementById(`more-${i}`).style.display = 'none';
-//     }
-//   }
-// }
-
-// window.addEventListener('resize', then => {
-//   checkHowManyCardsAreGenerated();
-// })
 
 const allFiveDaysCards = document.querySelectorAll('.five-days-weather__details');
 const allFiveDaysOfWeek = document.querySelectorAll('.five-days-weather__details-day');
@@ -329,7 +340,6 @@ function buildResponseFiveDays(res) {
   updateWeatherIcons();
   updateTemperatures();
   getDataForMoreInfo(res, dayOfMonthForMoreInfo[0]);
-  // checkHowManyCardsAreGenerated();
 }
 
 function defaultCity() {
@@ -353,8 +363,6 @@ searchInput.addEventListener("change", (event) => {
     });
   }
 });
-
-// https://codepen.io/shshaw/pen/rrOZQQ
 
 let dayOneIcon = document
   .getElementById("details-1")
