@@ -13,7 +13,7 @@ const moreInfoCardsContainer = document.querySelector(".five-days__more-cards");
 const moreInfoLine = document.querySelector(".five-days__more-line");
 
 for (let i = 1; i <= 7; i++) {
-    moreInfoCardsContainer.innerHTML += `<div class="five-days__more-card" id="more-${i}">
+  moreInfoCardsContainer.innerHTML += `<div class="five-days__more-card" id="more-${i}">
 
                     <div class="five-days__more-card-inside">
                       <div class="five-days__more-card-inside-hour" id="more-hour${i}"></div>
@@ -40,41 +40,27 @@ for (let i = 1; i <= 7; i++) {
                   </div>`;
 }
 
-const moreInfoCard1 = document.getElementById("more-1").style;
-const moreInfoCard2 = document.getElementById("more-2").style;
-const moreInfoCard3 = document.getElementById("more-3").style;
-const moreInfoCard4 = document.getElementById("more-4").style;
-const moreInfoCard5 = document.getElementById("more-5").style;
-const moreInfoCard6 = document.getElementById("more-6").style;
-const moreInfoCard7 = document.getElementById("more-7").style;
-
 function moreInfoCardsRules() {
   if (window.screen.width < 768) {
-    moreInfoCard1.display = "flex";
-    moreInfoCard2.display = "flex";
-    moreInfoCard3.display = "none";
-    moreInfoCard4.display = "none";
-    moreInfoCard5.display = "none";
-    moreInfoCard6.display = "none";
-    moreInfoCard7.display = "none";
+    for (let i = 1; i <= 2; i++) {
+      document.getElementById(`more-${i}`).style.display = "flex";
+    }
+    for (let i = 3; i <= 7; i++) {
+      document.getElementById(`more-${i}`).style.display = "none";
+    }
     moreInfoLine.style.display = "flex";
   } else if (window.screen.width < 1280) {
-    moreInfoCard1.display = "flex";
-    moreInfoCard2.display = "flex";
-    moreInfoCard3.display = "flex";
-    moreInfoCard4.display = "none";
-    moreInfoCard5.display = "none";
-    moreInfoCard6.display = "none";
-    moreInfoCard7.display = "none";
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById(`more-${i}`).style.display = "flex";
+    }
+    for (let i = 4; i <= 7; i++) {
+      document.getElementById(`more-${i}`).style.display = "none";
+    }
     moreInfoLine.style.display = "none";
   } else {
-    moreInfoCard1.display = "flex";
-    moreInfoCard2.display = "flex";
-    moreInfoCard3.display = "flex";
-    moreInfoCard4.display = "flex";
-    moreInfoCard5.display = "flex";
-    moreInfoCard6.display = "flex";
-    moreInfoCard7.display = "flex";
+    for (let i = 1; i <= 7; i++) {
+      document.getElementById(`more-${i}`).style.display = "flex";
+    }
     moreInfoLine.style.display = "none";
   }
 }
@@ -111,12 +97,26 @@ moreInfoButtons.forEach(button => {
 })
 
 let foundData;
-let moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
+let moreWeatherData = {
+  hour: [],
+  icon: [],
+  temperature: [],
+  pressure: [],
+  humidity: [],
+  wind: []
+};
 let foundDataLength = 0;
 
 
 function getDataForMoreInfo(res, day) {
-  moreWeatherData = {hour: [], icon: [], temperature: [], pressure: [], humidity: [], wind: []};
+  moreWeatherData = {
+    hour: [],
+    icon: [],
+    temperature: [],
+    pressure: [],
+    humidity: [],
+    wind: []
+  };
   foundData = res.list;
   foundDataLength = 0;
 
@@ -132,7 +132,7 @@ function getDataForMoreInfo(res, day) {
     }
   }
 
-  for (let i = 1; i <= foundDataLength-1; i++) {
+  for (let i = 1; i <= foundDataLength - 1; i++) {
     let hourID = `more-hour${i}`;
     let hourOnCard = document.getElementById(`${hourID}`);
     let hourFromApi = moreWeatherData.hour[i].slice(0, 5);
@@ -180,6 +180,7 @@ function getDataForMoreInfo(res, day) {
 
 }
 
+// checking which "more info cards" actually get data from API and hiding cards that don't get any data
 function checkFoundDataLength() {
   if (foundDataLength === 8) {
     for (let i = 1; i < foundDataLength; i++) {
@@ -194,4 +195,6 @@ function checkFoundDataLength() {
   }
 }
 
-export { getDataForMoreInfo };
+export {
+  getDataForMoreInfo
+};

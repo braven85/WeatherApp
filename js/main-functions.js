@@ -14,7 +14,7 @@ import {
 import { checkIfCityIsFavorite } from "./favorite-cities.js";
 
 /*
-dane dotyczące ikonki pogody
+dane dotyczące ikonek pogody
 01d - sunnySvg
 02d - sunCloudSvg
 03d, 04d - cloudySvg
