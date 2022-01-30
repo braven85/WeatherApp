@@ -101,4 +101,25 @@ searchInput.addEventListener('change', event => {
   }
 })
 
+const favoriteCityCapsule = document.querySelector(".fav-city__boxes");
+let scrollAmount = 0;
+
+const favCityArrowButtonRight = document.querySelector('.fav-city__arrow-button-right');
+favCityArrowButtonRight.onclick = function () {
+  scrollAmount = 0;
+  favoriteCityCapsule.scrollBy({
+    left: +200,
+    behavior: 'smooth'
+  })
+}
+
+const favCityArrowButtonLeft = document.querySelector('.fav-city__arrow-button-left');
+favCityArrowButtonLeft.onclick = function () {
+  scrollAmount = 0;
+  favoriteCityCapsule.scrollBy({
+    left: -200,
+    behavior: 'smooth'
+  })
+}
+
 export { buildResponseMain };

@@ -41,38 +41,6 @@ for (let i = 1; i <= 7; i++) {
                   </div>`;
 }
 
-// function that generates "more info cards" depending on screen resolution
-function moreInfoCardsRules() {
-  if (window.screen.width < 768) {
-    for (let i = 1; i <= 2; i++) {
-      document.getElementById(`more-${i}`).style.display = "flex";
-    }
-    for (let i = 3; i <= 7; i++) {
-      document.getElementById(`more-${i}`).style.display = "none";
-    }
-    moreInfoLine.style.display = "flex";
-  } else if (window.screen.width < 1280) {
-    for (let i = 1; i <= 3; i++) {
-      document.getElementById(`more-${i}`).style.display = "flex";
-    }
-    for (let i = 4; i <= 7; i++) {
-      document.getElementById(`more-${i}`).style.display = "none";
-    }
-    moreInfoLine.style.display = "none";
-  } else {
-    for (let i = 1; i <= 7; i++) {
-      document.getElementById(`more-${i}`).style.display = "flex";
-    }
-    moreInfoLine.style.display = "none";
-  }
-}
-
-addEventListener("resize", (then) => {
-  moreInfoCardsRules();
-});
-
-moreInfoCardsRules();
-
 const specIconsAll = document.querySelectorAll('.five-days__more-spec-field-icon');
 
 // generowanie ikonek barometr, wilgotność oraz wiatr w kartach
@@ -178,9 +146,52 @@ function getDataForMoreInfo(res, day) {
 
   }
 
-  checkFoundDataLength();
+  // checkFoundDataLength();
 
 }
+
+// function moreInfoCardsRules() {
+//   if (window.screen.width < 768) {
+//     for (let i = 1; i <= 2; i++) {
+//       document.getElementById(`more-${i}`).style.display = "flex";
+//     }
+//     for (let i = 3; i <= 7; i++) {
+//       document.getElementById(`more-${i}`).style.display = "none";
+//     }
+//     moreInfoLine.style.display = "flex";
+
+//     if (foundDataLength < 3) {
+//       for (let i = 2; i >= foundDataLength; i--) {
+//         document.getElementById(`more-${i}`).style.display = 'none';
+//       }
+//     }
+//   } else if (window.screen.width < 1280) {
+//     for (let i = 1; i <= 3; i++) {
+//       document.getElementById(`more-${i}`).style.display = "flex";
+//     }
+//     for (let i = 4; i <= 7; i++) {
+//       document.getElementById(`more-${i}`).style.display = "none";
+//     }
+//     moreInfoLine.style.display = "none";
+
+//     if (foundDataLength < 4) {
+//       for (let i = 3; i >= foundDataLength; i--) {
+//         document.getElementById(`more-${i}`).style.display = 'none';
+//       }
+//     }
+//   } else if (window.screen.width >= 1280) {
+//     for (let i = 1; i <= 7; i++) {
+//       document.getElementById(`more-${i}`).style.display = "flex";
+//     }
+//     moreInfoLine.style.display = "none";
+
+//   } else if (window.screen.width >= 1280 && foundDataLength < 8) {
+//     for (let i = 7; i >= foundDataLength; i--) {
+//       document.getElementById(`more-${i}`).style.display = 'none';
+//     }
+//     moreInfoLine.style.display = "none";
+//   }
+// }
 
 // checking which "more info cards" actually get data from API and hiding cards that don't get any data
 function checkFoundDataLength() {
@@ -196,6 +207,38 @@ function checkFoundDataLength() {
     console.error("foundDataLength ma nieprawidłową wartość");
   }
 }
+
+// function that generates "more info cards" depending on screen resolution
+function moreInfoCardsRules() {
+  if (window.screen.width < 768) {
+    for (let i = 1; i <= 2; i++) {
+      document.getElementById(`more-${i}`).style.display = "flex";
+    }
+    for (let i = 3; i <= 7; i++) {
+      document.getElementById(`more-${i}`).style.display = "none";
+    }
+    moreInfoLine.style.display = "flex";
+  } else if (window.screen.width < 1280) {
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById(`more-${i}`).style.display = "flex";
+    }
+    for (let i = 4; i <= 7; i++) {
+      document.getElementById(`more-${i}`).style.display = "none";
+    }
+    moreInfoLine.style.display = "none";
+  } else {
+    for (let i = 1; i <= 7; i++) {
+      document.getElementById(`more-${i}`).style.display = "flex";
+    }
+    moreInfoLine.style.display = "none";
+  }
+}
+
+addEventListener("resize", (then) => {
+  moreInfoCardsRules();
+});
+
+moreInfoCardsRules();
 
 export {
   getDataForMoreInfo

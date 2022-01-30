@@ -116,7 +116,7 @@
   }
 
   &__boxes {
-    min-width: 280px - 33px;
+    min-width: 280px - 66px;
     height: 28px;
     display: flex;
     overflow: hidden;
@@ -182,7 +182,25 @@
     }
   }
 
-  &__arrow-button {
+  &__arrow-button-left {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 5px;
+    transform: rotate(180deg);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  &__arrow-button-right {
     width: 28px;
     height: 28px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -192,6 +210,11 @@
     align-items: center;
     flex-shrink: 0;
     margin-left: 5px;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
   }
 
   &__arrow {

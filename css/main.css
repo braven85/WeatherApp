@@ -101,7 +101,7 @@
 }
 
 .fav-city__boxes {
-  min-width: 247px;
+  min-width: 214px;
   height: 28px;
   display: flex;
   overflow: hidden;
@@ -164,7 +164,24 @@
   cursor: pointer;
 }
 
-.fav-city__arrow-button {
+.fav-city__arrow-button-left {
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 5px;
+  transform: rotate(180deg);
+}
+
+.fav-city__arrow-button-left:hover, .fav-city__arrow-button-left:focus {
+  cursor: pointer;
+}
+
+.fav-city__arrow-button-right {
   width: 28px;
   height: 28px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -174,6 +191,10 @@
   align-items: center;
   flex-shrink: 0;
   margin-left: 5px;
+}
+
+.fav-city__arrow-button-right:hover, .fav-city__arrow-button-right:focus {
+  cursor: pointer;
 }
 
 .fav-city__arrow {

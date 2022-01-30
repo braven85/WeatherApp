@@ -1,5 +1,9 @@
-import { fetchCityFiveDays } from "./fetchApi.js";
-import { buildResponseFiveDays } from "./five-days-functions.js";
+import {
+  fetchCityFiveDays
+} from "./fetchApi.js";
+import {
+  buildResponseFiveDays
+} from "./five-days-functions.js";
 
 if (window.screen.width < 1280) {
   Notiflix.Notify.init({
@@ -171,4 +175,24 @@ function favCityNameResponsive(city) {
       buildResponseFiveDays(res);
     });
   });
+}
+
+let scrollAmount = 0;
+
+const favCityArrowButtonRight = document.querySelector('.fav-city__arrow-button-right');
+favCityArrowButtonRight.onclick = function () {
+  scrollAmount = 0;
+  favoriteCityCapsule.scrollBy({
+    left: +200,
+    behavior: 'smooth'
+  })
+}
+
+const favCityArrowButtonLeft = document.querySelector('.fav-city__arrow-button-left');
+favCityArrowButtonLeft.onclick = function () {
+  scrollAmount = 0;
+  favoriteCityCapsule.scrollBy({
+    left: -200,
+    behavior: 'smooth'
+  })
 }
