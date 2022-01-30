@@ -59,7 +59,7 @@
 <path fill="none" opacity="1" stroke="#fff" stroke-width="4.8" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" style="stroke: var(--color1, #fff)" d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
 </symbol>
 <symbol id="black-arrow-right" viewBox="0 0 22 32">
-<path fill="none" opacity="1" stroke="#000" stroke-width="4.8" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" style="stroke: var(--color1, #000)" d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
+<path fill="none" opacity="1" stroke-width="4.8" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
 </symbol>
 </defs>
 </svg>

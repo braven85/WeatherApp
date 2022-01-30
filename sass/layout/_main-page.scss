@@ -193,10 +193,12 @@
     flex-shrink: 0;
     margin-right: 5px;
     transform: rotate(180deg);
+    stroke: black;
 
     &:hover,
     &:focus {
       cursor: pointer;
+      stroke: white;
     }
   }
 
@@ -210,10 +212,12 @@
     align-items: center;
     flex-shrink: 0;
     margin-left: 5px;
+    stroke: black;
 
     &:hover,
     &:focus {
       cursor: pointer;
+      stroke: white;
     }
   }
 

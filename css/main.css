@@ -175,10 +175,12 @@
   flex-shrink: 0;
   margin-right: 5px;
   transform: rotate(180deg);
+  stroke: black;
 }
 
 .fav-city__arrow-button-left:hover, .fav-city__arrow-button-left:focus {
   cursor: pointer;
+  stroke: white;
 }
 
 .fav-city__arrow-button-right {
@@ -191,10 +193,12 @@
   align-items: center;
   flex-shrink: 0;
   margin-left: 5px;
+  stroke: black;
 }
 
 .fav-city__arrow-button-right:hover, .fav-city__arrow-button-right:focus {
   cursor: pointer;
+  stroke: white;
 }
 
 .fav-city__arrow {
@@ -828,6 +832,7 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  overflow: hidden;
 }
 
 .five-days-weather__details {
@@ -1090,7 +1095,8 @@
   width: 250px;
   height: 218px;
   display: flex;
-  justify-content: space-between;
+  overflow: hidden;
+  column-gap: 10px;
 }
 
 .five-days__more-card {
@@ -1105,7 +1111,7 @@
 }
 
 .five-days__more-card-inside {
-  width: 88px;
+  width: 120px;
   height: 185px;
   display: flex;
   flex-direction: column;
@@ -1385,18 +1391,18 @@
     margin-bottom: 0px;
   }
   .five-days__more {
-    width: 380px;
-    height: 238px;
-    margin: 40px auto 29px auto;
+    width: 510px;
+    height: 268px;
+    margin: 40px auto 0px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   .five-days__more-cards {
-    width: 380px;
+    width: 510px;
     height: 218px;
     display: flex;
-    justify-content: space-evenly;
+    overflow: hidden;
   }
   .five-days__more-card {
     width: 120px;
@@ -1409,7 +1415,7 @@
     border-radius: 25px;
   }
   .five-days__more-card-inside {
-    width: 88px;
+    width: 120px;
     height: 185px;
     display: flex;
     flex-direction: column;
@@ -1488,6 +1494,49 @@
     width: 250px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(255, 255, 255, 0.2);
+  }
+  .five-days__more-arrow {
+    width: 10px;
+    height: 20px;
+  }
+  .five-days__more-arrows {
+    width: 510px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .five-days__more-arrows-left {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 5px;
+    transform: rotate(180deg);
+    stroke: black;
+  }
+  .five-days__more-arrows-left:hover, .five-days__more-arrows-left:focus {
+    cursor: pointer;
+    stroke: white;
+  }
+  .five-days__more-arrows-right {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 5px;
+    stroke: black;
+  }
+  .five-days__more-arrows-right:hover, .five-days__more-arrows-right:focus {
+    cursor: pointer;
+    stroke: white;
   }
   .hidden {
     display: none;
@@ -1657,6 +1706,7 @@
     height: 218px;
     display: flex;
     justify-content: space-evenly;
+    overflow: visible;
   }
   .five-days__more-card {
     width: 120px;

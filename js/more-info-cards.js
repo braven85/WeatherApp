@@ -10,7 +10,6 @@ import {
 
 
 const moreInfoCardsContainer = document.querySelector(".five-days__more-cards");
-const moreInfoLine = document.querySelector(".five-days__more-line");
 
 // a "for loop" that generates "more info cards"
 for (let i = 1; i <= 7; i++) {
@@ -146,52 +145,9 @@ function getDataForMoreInfo(res, day) {
 
   }
 
-  // checkFoundDataLength();
+  checkFoundDataLength();
 
 }
-
-// function moreInfoCardsRules() {
-//   if (window.screen.width < 768) {
-//     for (let i = 1; i <= 2; i++) {
-//       document.getElementById(`more-${i}`).style.display = "flex";
-//     }
-//     for (let i = 3; i <= 7; i++) {
-//       document.getElementById(`more-${i}`).style.display = "none";
-//     }
-//     moreInfoLine.style.display = "flex";
-
-//     if (foundDataLength < 3) {
-//       for (let i = 2; i >= foundDataLength; i--) {
-//         document.getElementById(`more-${i}`).style.display = 'none';
-//       }
-//     }
-//   } else if (window.screen.width < 1280) {
-//     for (let i = 1; i <= 3; i++) {
-//       document.getElementById(`more-${i}`).style.display = "flex";
-//     }
-//     for (let i = 4; i <= 7; i++) {
-//       document.getElementById(`more-${i}`).style.display = "none";
-//     }
-//     moreInfoLine.style.display = "none";
-
-//     if (foundDataLength < 4) {
-//       for (let i = 3; i >= foundDataLength; i--) {
-//         document.getElementById(`more-${i}`).style.display = 'none';
-//       }
-//     }
-//   } else if (window.screen.width >= 1280) {
-//     for (let i = 1; i <= 7; i++) {
-//       document.getElementById(`more-${i}`).style.display = "flex";
-//     }
-//     moreInfoLine.style.display = "none";
-
-//   } else if (window.screen.width >= 1280 && foundDataLength < 8) {
-//     for (let i = 7; i >= foundDataLength; i--) {
-//       document.getElementById(`more-${i}`).style.display = 'none';
-//     }
-//     moreInfoLine.style.display = "none";
-//   }
-// }
 
 // checking which "more info cards" actually get data from API and hiding cards that don't get any data
 function checkFoundDataLength() {
@@ -208,37 +164,47 @@ function checkFoundDataLength() {
   }
 }
 
-// function that generates "more info cards" depending on screen resolution
-function moreInfoCardsRules() {
+const moreInfoLine = document.querySelector(".five-days__more-line");
+const moreInfoArrowsContainer = document.querySelector(".five-days__more-arrows");
+
+function moreInfoLineRules() {
   if (window.screen.width < 768) {
-    for (let i = 1; i <= 2; i++) {
-      document.getElementById(`more-${i}`).style.display = "flex";
-    }
-    for (let i = 3; i <= 7; i++) {
-      document.getElementById(`more-${i}`).style.display = "none";
-    }
     moreInfoLine.style.display = "flex";
+    moreInfoArrowsContainer.style.display = "none";
   } else if (window.screen.width < 1280) {
-    for (let i = 1; i <= 3; i++) {
-      document.getElementById(`more-${i}`).style.display = "flex";
-    }
-    for (let i = 4; i <= 7; i++) {
-      document.getElementById(`more-${i}`).style.display = "none";
-    }
     moreInfoLine.style.display = "none";
+    moreInfoArrowsContainer.style.display = "flex";
   } else {
-    for (let i = 1; i <= 7; i++) {
-      document.getElementById(`more-${i}`).style.display = "flex";
-    }
     moreInfoLine.style.display = "none";
+    moreInfoArrowsContainer.style.display = "none";
   }
 }
 
 addEventListener("resize", (then) => {
-  moreInfoCardsRules();
+  moreInfoLineRules();
 });
 
-moreInfoCardsRules();
+moreInfoLineRules();
+
+let scrollAmount = 0;
+
+const moreInfoArrowRight = document.querySelector(".five-days__more-arrows-right");
+moreInfoArrowRight.onclick = function () {
+  scrollAmount = 0;
+  moreInfoCardsContainer.scrollBy({
+    left: +130,
+    behavior: 'smooth'
+  })
+}
+
+const moreInfoArrowLeft = document.querySelector(".five-days__more-arrows-left");
+moreInfoArrowLeft.onclick = function () {
+  scrollAmount = 0;
+  moreInfoCardsContainer.scrollBy({
+    left: -130,
+    behavior: 'smooth'
+  })
+}
 
 export {
   getDataForMoreInfo

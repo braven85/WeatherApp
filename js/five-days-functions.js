@@ -142,20 +142,14 @@ const dayFiveMaxTemp = document
   .getElementById("details-5")
   .querySelector(".five-days-weather__details-max__down");
 
-const dayFourCard = document.getElementById("details-4");
-const dayFiveCard = document.getElementById("details-5");
 const switchLink = document.querySelector(".five-days-weather__switch");
 
 function setResolutionDependencies() {
   if (window.screen.width < 768) {
-    dayFourCard.style.display = "none";
-    dayFiveCard.style.display = "none";
     switchLink.style.display = "flex";
     cityNameOutside.style.display = "none";
     cityNameInside.style.display = "flex";
   } else if (window.screen.width >= 768) {
-    dayFourCard.style.display = "block";
-    dayFiveCard.style.display = "block";
     switchLink.style.display = "none";
     cityNameInside.style.display = "none";
     cityNameOutside.style.display = "flex";
@@ -236,7 +230,12 @@ function getTemperatures(res) {
   let maxTemp = 0;
 
   for (let i = 0; i <= 4; i++) {
-    minMaxTempAndIconsForAllDays[i] = {hour: [], tempMin: [], tempMax: [], icon: []};
+    minMaxTempAndIconsForAllDays[i] = {
+      hour: [],
+      tempMin: [],
+      tempMax: [],
+      icon: []
+    };
     for (let temp of foundCityTemperatures) {
       if (
         temp.dt_txt.slice(8, 10) == dateForLoop
@@ -259,7 +258,7 @@ function getTemperatures(res) {
 
     minTemp = minMaxTempAndIconsForAllDays[i].tempMin[0];
     maxTemp = minMaxTempAndIconsForAllDays[i].tempMax[0];
-    
+
     for (let j = 0; j < tempTableLength; j++) {
       if (minMaxTempAndIconsForAllDays[i].tempMin[j] < minTemp) {
         minTemp = minMaxTempAndIconsForAllDays[i].tempMin[j];
@@ -268,7 +267,7 @@ function getTemperatures(res) {
         maxTemp = minMaxTempAndIconsForAllDays[i].tempMax[j];
       }
     }
-    
+
     minTemperatures[i] = Math.round(minTemp);
     maxTemperatures[i] = Math.round(maxTemp);
 
@@ -384,6 +383,27 @@ let dayFiveIcon = document
   .getElementById("details-5")
   .querySelector(".five-days-weather__details-image").style;
 
+
+
+let scrollAmount = 0;
+
+const fiveDaysDetailsRightArrow = document.querySelector('.five-days-weather__switch-right');
+fiveDaysDetailsRightArrow.onclick = function () {
+  scrollAmount = 0;
+  containerForBoxes.scrollBy({
+    left: +82,
+    behavior: 'smooth'
+  })
+}
+
+const fiveDaysDetailsLeftArrow = document.querySelector('.five-days-weather__switch-left');
+fiveDaysDetailsLeftArrow.onclick = function () {
+  scrollAmount = 0;
+  containerForBoxes.scrollBy({
+    left: -82,
+    behavior: 'smooth'
+  })
+}
 
 export {
   buildResponseFiveDays

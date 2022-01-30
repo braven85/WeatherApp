@@ -1,177 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WeatherApp</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.min.css">
-  </head>
-  <body>
 
-    <!-- MAIN -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherApp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.min.css">
+</head>
 
-    <main class="main-container">
+<body>
 
-      <!-- FIVE DAYS CONTAINER -->
+  <!-- MAIN -->
 
-      <div class="five-days__container">
+  <main class="main-container">
 
-        <div class="search-frame">
-          <div class="search-field">
-            <div class="search-field__icon-location">
-              <svg class="search-field__icon-loc">
-                <use href="./images/svg/symbol-defs.svg#icon-location"></use>
-              </svg>
+    <!-- FIVE DAYS CONTAINER -->
+
+    <div class="five-days__container">
+
+      <div class="search-frame">
+        <div class="search-field">
+          <div class="search-field__icon-location">
+            <svg class="search-field__icon-loc">
+              <use href="./images/svg/symbol-defs.svg#icon-location"></use>
+            </svg>
+          </div>
+          <input class="search-field__input" type="text" placeholder="Enter the city">
+          </input>
+          <div class="search-field__icon-favorite">
+            <svg class="search-field__icon-star">
+              <use href="./images/svg/symbol-defs.svg#icon-Star-1"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAVORITE CITIES -->
+      <section class="fav-city__container">
+        <div class="fav-city__arrow-button-left">
+          <svg class="fav-city__arrow">
+            <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
+          </svg>
+        </div>
+        <div class="fav-city__boxes">
+          <div class="fav-city__capsule">
+            <div class="fav-city__capsule-text">Warszawa</div>
+            <div class="fav-city__capsule-cross">
+              <div class="fav-city__capsule-cross-line1"></div>
+              <div class="fav-city__capsule-cross-line2"></div>
             </div>
-            <input class="search-field__input" type="text" placeholder="Enter the city">
-            </input>
-            <div class="search-field__icon-favorite">
-              <svg class="search-field__icon-star">
-                <use href="./images/svg/symbol-defs.svg#icon-Star-1"></use>
-              </svg>
+          </div>
+          <div class="fav-city__capsule">
+            <div class="fav-city__capsule-text">Kraków</div>
+            <div class="fav-city__capsule-cross">
+              <div class="fav-city__capsule-cross-line1"></div>
+              <div class="fav-city__capsule-cross-line2"></div>
+            </div>
+          </div>
+          <div class="fav-city__capsule">
+            <div class="fav-city__capsule-text">Gdańsk</div>
+            <div class="fav-city__capsule-cross">
+              <div class="fav-city__capsule-cross-line1"></div>
+              <div class="fav-city__capsule-cross-line2"></div>
+            </div>
+          </div>
+          <div class="fav-city__capsule">
+            <div class="fav-city__capsule-text">Opole</div>
+            <div class="fav-city__capsule-cross">
+              <div class="fav-city__capsule-cross-line1"></div>
+              <div class="fav-city__capsule-cross-line2"></div>
+            </div>
+          </div>
+          <div class="fav-city__capsule">
+            <div class="fav-city__capsule-text">Wrocław</div>
+            <div class="fav-city__capsule-cross">
+              <div class="fav-city__capsule-cross-line1"></div>
+              <div class="fav-city__capsule-cross-line2"></div>
+            </div>
+          </div>
+          <div class="fav-city__capsule">
+            <div class="fav-city__capsule-text">Łódź</div>
+            <div class="fav-city__capsule-cross">
+              <div class="fav-city__capsule-cross-line1"></div>
+              <div class="fav-city__capsule-cross-line2"></div>
             </div>
           </div>
         </div>
-
-        <!-- FAVORITE CITIES -->
-        <section class="fav-city__container">
-          <div class="fav-city__arrow-button-left">
-            <svg class="fav-city__arrow">
-                <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
-              </svg>
-          </div>
-          <div class="fav-city__boxes">
-            <div class="fav-city__capsule">
-              <div class="fav-city__capsule-text">Warszawa</div>
-              <div class="fav-city__capsule-cross">
-                <div class="fav-city__capsule-cross-line1"></div>
-                <div class="fav-city__capsule-cross-line2"></div>
-              </div>
-            </div>
-            <div class="fav-city__capsule">
-              <div class="fav-city__capsule-text">Kraków</div>
-              <div class="fav-city__capsule-cross">
-                <div class="fav-city__capsule-cross-line1"></div>
-                <div class="fav-city__capsule-cross-line2"></div>
-              </div>
-            </div>
-            <div class="fav-city__capsule">
-              <div class="fav-city__capsule-text">Gdańsk</div>
-              <div class="fav-city__capsule-cross">
-                <div class="fav-city__capsule-cross-line1"></div>
-                <div class="fav-city__capsule-cross-line2"></div>
-              </div>
-            </div>
-            <div class="fav-city__capsule">
-              <div class="fav-city__capsule-text">Opole</div>
-              <div class="fav-city__capsule-cross">
-                <div class="fav-city__capsule-cross-line1"></div>
-                <div class="fav-city__capsule-cross-line2"></div>
-              </div>
-            </div>
-            <div class="fav-city__capsule">
-              <div class="fav-city__capsule-text">Wrocław</div>
-              <div class="fav-city__capsule-cross">
-                <div class="fav-city__capsule-cross-line1"></div>
-                <div class="fav-city__capsule-cross-line2"></div>
-              </div>
-            </div>
-            <div class="fav-city__capsule">
-              <div class="fav-city__capsule-text">Łódź</div>
-              <div class="fav-city__capsule-cross">
-                <div class="fav-city__capsule-cross-line1"></div>
-                <div class="fav-city__capsule-cross-line2"></div>
-              </div>
-            </div>
-          </div>
-          <div class="fav-city__arrow-button-right">
-            <svg class="fav-city__arrow">
-                <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
-              </svg>
-          </div>
-        </section>
-        <!-- END OF FAVORITE CITIES -->
+        <div class="fav-city__arrow-button-right">
+          <svg class="fav-city__arrow">
+            <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
+          </svg>
+        </div>
+      </section>
+      <!-- END OF FAVORITE CITIES -->
 
 
-        <!-- FIVE DAYS BUTTONS -->
-        <div class="five-days__buttons-and-city-name">
-          <div class="buttons-box__five-days">
-            <a href="./index.html" class="button-link__today">
-              <button class="button-today button-today__inactive">TODAY</button>
-            </a>
+      <!-- FIVE DAYS BUTTONS -->
+      <div class="five-days__buttons-and-city-name">
+        <div class="buttons-box__five-days">
+          <a href="./index.html" class="button-link__today">
+            <button class="button-today button-today__inactive">TODAY</button>
+          </a>
 
-            <a href="#" class="button-link__five-days">
-              <button class="button-five-days button-five-days__active">5 DAYS</button>
-            </a>
+          <a href="#" class="button-link__five-days">
+            <button class="button-five-days button-five-days__active">5 DAYS</button>
+          </a>
 
-          </div>
-
-          <div class="five-days-weather__city-name" id="city-outside"></div>
         </div>
 
-        <!-- FIVE DAYS WEATHER CONTAINER -->
-        <div class="five-days-weather__container">
+        <div class="five-days-weather__city-name" id="city-outside"></div>
+      </div>
 
-          <div class="five-days-weather__main">
+      <!-- FIVE DAYS WEATHER CONTAINER -->
+      <div class="five-days-weather__container">
 
-            <div class="five-days-weather__city-name" id="city-inside"></div>
-            <div class="five-days-weather__box-for-five">
-              <!-- TUTAJ GENEROWANE SĄ KARTY Z PROGNOZĄ NA 5 DNI -->
+        <div class="five-days-weather__main">
+
+          <div class="five-days-weather__city-name" id="city-inside"></div>
+          <div class="five-days-weather__box-for-five">
+            <!-- TUTAJ GENEROWANE SĄ KARTY Z PROGNOZĄ NA 5 DNI -->
+          </div>
+
+          <div class="five-days-weather__switch">
+            <svg class="five-days-weather__switch-left">
+              <use href="./images/svg/symbol-defs.svg#icon-arrow-left"></use>
+            </svg>
+            <svg class="five-days-weather__switch-right">
+              <use href="./images/svg/symbol-defs.svg#icon-arrow-right"></use>
+            </svg>
+          </div>
+
+          <div class="five-days__more hidden">
+            <div class="five-days__more-cards">
+              <!-- TUTAJ GENEROWANE SĄ KARTY MORE INFO -->
             </div>
-
-            <div class="five-days-weather__switch">
-              <svg class="five-days-weather__switch-left">
-                <use href="./images/svg/symbol-defs.svg#icon-arrow-left"></use>
-              </svg>
-              <svg class="five-days-weather__switch-right">
-                <use href="./images/svg/symbol-defs.svg#icon-arrow-right"></use>
-              </svg>
-            </div>
-
-            <div class="five-days__more hidden">
-              <div class="five-days__more-cards">
-                <!-- TUTAJ GENEROWANE SĄ KARTY MORE INFO -->
+            <div class="five-days__more-line"></div>
+            <div class="five-days__more-arrows">
+              <div class="five-days__more-arrows-left">
+                <svg class="five-days__more-arrow">
+                  <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
+                </svg>
               </div>
-              <div class="five-days__more-line"></div>
-            </div>
-
-          </div>
-
-          <!-- SHOW CHART LINK -->
-          <div class="five-days-weather__first-chart">
-            <div class="five-days-weather__first-chart-text">Show Chart</div>
-            <div class="five-days-weather__first-chart-icon">
-              <svg class="five-days-weather__first-chart-icon-svg">
-                <use href="./images/svg/symbol-defs.svg#icon-arrow-right"></use>
-              </svg>
+              <div class="five-days__more-arrows-right">
+                <svg class="five-days__more-arrow">
+                  <use href="./images/svg/symbol-defs.svg#black-arrow-right"></use>
+                </svg>
+              </div>
             </div>
           </div>
-          <!-- END OF SHOW CHART LINK -->
 
         </div>
-        <!-- END OF FIVE DAYS WEATHER CONTAINER -->
 
+        <!-- SHOW CHART LINK -->
+        <div class="five-days-weather__first-chart">
+          <div class="five-days-weather__first-chart-text">Show Chart</div>
+          <div class="five-days-weather__first-chart-icon">
+            <svg class="five-days-weather__first-chart-icon-svg">
+              <use href="./images/svg/symbol-defs.svg#icon-arrow-right"></use>
+            </svg>
+          </div>
+        </div>
+        <!-- END OF SHOW CHART LINK -->
 
       </div>
-      <!-- END OF FIVE DAYS CONTAINER -->
-
-    </main>
-    <!-- END OF MAIN -->
+      <!-- END OF FIVE DAYS WEATHER CONTAINER -->
 
 
-    <script type="module" src="./js/fetchApi.js"></script>
-    <script type="module" src="./js/five-days-functions.js"></script>
-    <script type="module" src="./js/js-icons.js"></script>
-    <script type="module" src="./js/more-info-cards.js"></script>
-    <script src="./js/notiflix-aio-3.2.2.min.js"></script>
-  </body>
+    </div>
+    <!-- END OF FIVE DAYS CONTAINER -->
+
+  </main>
+  <!-- END OF MAIN -->
+
+
+  <script type="module" src="./js/fetchApi.js"></script>
+  <script type="module" src="./js/five-days-functions.js"></script>
+  <script type="module" src="./js/js-icons.js"></script>
+  <script type="module" src="./js/more-info-cards.js"></script>
+  <script src="./js/notiflix-aio-3.2.2.min.js"></script>
+</body>
+
 </html>

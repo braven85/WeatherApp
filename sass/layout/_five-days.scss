@@ -59,6 +59,7 @@
       margin-left: auto;
       margin-right: auto;
       display: flex;
+      overflow: hidden;
     }
 
     &__details {
@@ -290,7 +291,8 @@
       width: 250px;
       height: 218px;
       display: flex;
-      justify-content: space-between;
+      overflow: hidden;
+      column-gap: 10px;
     }
 
     &-card {
@@ -305,7 +307,7 @@
       border-radius: 25px;
 
       &-inside {
-        width: 88px;
+        width: 120px;
         height: 185px;
         display: flex;
         flex-direction: column;
@@ -630,18 +632,19 @@
     // ===============================================================================
 
     &__more {
-      width: (120px * 3) + 20px;
-      height: 238px;
-      margin: 40px auto 29px auto;
+      width: (120px * 4) + 30px;
+      height: 268px;
+      margin: 40px auto 0px auto;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
       &-cards {
-        width: (120px * 3) + 20px;
+        width: (120px * 4) + 30px;
         height: 218px;
         display: flex;
-        justify-content: space-evenly;
+        overflow: hidden;
+        // column-gap: 10px;
       }
 
       &-card {
@@ -656,7 +659,7 @@
         border-radius: 25px;
 
         &-inside {
-          width: 88px;
+          width: 120px;
           height: 185px;
           display: flex;
           flex-direction: column;
@@ -748,6 +751,57 @@
         width: 250px;
         border: 2px solid rgba(255, 255, 255, 0.2);
         background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &-arrow {
+        width: 10px;
+        height: 20px;
+      }
+
+      &-arrows {
+        width: (120px * 4) + 30px;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        &-left {
+          width: 28px;
+          height: 28px;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+          margin-right: 5px;
+          transform: rotate(180deg);
+          stroke: black;
+
+          &:hover,
+          &:focus {
+            cursor: pointer;
+            stroke: white;
+          }
+        }
+
+        &-right {
+          width: 28px;
+          height: 28px;
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+          margin-left: 5px;
+          stroke: black;
+
+          &:hover,
+          &:focus {
+            cursor: pointer;
+            stroke: white;
+          }
+        }
       }
     }
 
@@ -967,6 +1021,7 @@
         height: 218px;
         display: flex;
         justify-content: space-evenly;
+        overflow: visible;
       }
 
       &-card {
