@@ -1,6 +1,4 @@
-import {
-  fetchCityFiveDays
-} from "./fetchApi.js";
+import { fetchCityFiveDays } from "./fetchApi.js";
 import {
   sunnySvg,
   snowySvg,
@@ -8,12 +6,8 @@ import {
   sunCloudSvg,
   cloudySvg,
 } from "./js-icons.js";
-import {
-  checkIfCityIsFavorite
-} from "./favorite-five-cities.js";
-import {
-  getDataForMoreInfo
-} from "./more-info-cards.js";
+import { checkIfCityIsFavorite } from "./favorite-five-cities.js";
+import { getDataForMoreInfo } from "./more-info-cards.js";
 
 const searchInput = document.querySelector(".search-field__input");
 
@@ -210,7 +204,7 @@ function updateTemperatures() {
   dayFiveMaxTemp.innerHTML = maxTemperatures[4] + "°";
 }
 
-let minMaxTempAndIconsForAllDays = {}
+let minMaxTempAndIconsForAllDays = {};
 
 function getTemperatures(res) {
   cityNameInside.innerHTML = res.city.name;
@@ -223,7 +217,7 @@ function getTemperatures(res) {
   );
   let dateForLoop = new Date(dateBeforeLoopTomorrow).getDate();
 
-  minMaxTempAndIconsForAllDays = {}
+  minMaxTempAndIconsForAllDays = {};
   weatherCodes = [];
   let tempTableLength = 0;
   let minTemp = 0;
@@ -234,13 +228,11 @@ function getTemperatures(res) {
       hour: [],
       tempMin: [],
       tempMax: [],
-      icon: []
+      icon: [],
     };
     for (let temp of foundCityTemperatures) {
-      if (
-        temp.dt_txt.slice(8, 10) == dateForLoop
-      ) {
-        minMaxTempAndIconsForAllDays[i].hour.push((temp.dt_txt).slice(11, 16));
+      if (temp.dt_txt.slice(8, 10) == dateForLoop) {
+        minMaxTempAndIconsForAllDays[i].hour.push(temp.dt_txt.slice(11, 16));
         minMaxTempAndIconsForAllDays[i].tempMin.push(temp.main.temp_min);
         minMaxTempAndIconsForAllDays[i].tempMax.push(temp.main.temp_max);
         minMaxTempAndIconsForAllDays[i].icon.push(temp.weather[0].icon);
@@ -254,7 +246,7 @@ function getTemperatures(res) {
 
     weatherCodes[i] = minMaxTempAndIconsForAllDays[i].icon[4];
 
-    tempTableLength = (minMaxTempAndIconsForAllDays[i].tempMin).length;
+    tempTableLength = minMaxTempAndIconsForAllDays[i].tempMin.length;
 
     minTemp = minMaxTempAndIconsForAllDays[i].tempMin[0];
     maxTemp = minMaxTempAndIconsForAllDays[i].tempMax[0];
@@ -270,48 +262,55 @@ function getTemperatures(res) {
 
     minTemperatures[i] = Math.round(minTemp);
     maxTemperatures[i] = Math.round(maxTemp);
-
   }
-
 }
 
-
 let dayOfMonthForMoreInfo = [];
-const daysOfMonth = document.querySelectorAll('.five-days-weather__details-month');
-daysOfMonth.forEach(day => {
+const daysOfMonth = document.querySelectorAll(
+  ".five-days-weather__details-month"
+);
+daysOfMonth.forEach((day) => {
   dayOfMonthForMoreInfo.push(day.innerHTML.slice(0, 2));
-})
+});
 
-const allFiveDaysCards = document.querySelectorAll('.five-days-weather__details');
-const allFiveDaysOfWeek = document.querySelectorAll('.five-days-weather__details-day');
-const allFiveDaysMoreInfo = document.querySelectorAll('.five-days-weather__details-more');
-const fiveDaysDetailsContainer = document.querySelector('.five-days-weather__main');
-const fiveDaysMoreInfoContainer = document.querySelector('.five-days__more');
+const allFiveDaysCards = document.querySelectorAll(
+  ".five-days-weather__details"
+);
+const allFiveDaysOfWeek = document.querySelectorAll(
+  ".five-days-weather__details-day"
+);
+const allFiveDaysMoreInfo = document.querySelectorAll(
+  ".five-days-weather__details-more"
+);
+const fiveDaysDetailsContainer = document.querySelector(
+  ".five-days-weather__main"
+);
+const fiveDaysMoreInfoContainer = document.querySelector(".five-days__more");
 
 function checkSelectedCardsClasses(card) {
-  if (card.children[0].classList.contains('active-details-card')) {
-    card.children[0].classList.remove('active-details-card');
-    card.children[3].children[1].classList.remove('active-more-info');
+  if (card.children[0].classList.contains("active-details-card")) {
+    card.children[0].classList.remove("active-details-card");
+    card.children[3].children[1].classList.remove("active-more-info");
     fiveDaysDetailsContainer.classList.remove("active-more-info-container");
     fiveDaysMoreInfoContainer.classList.add("hidden");
   } else {
-    allFiveDaysOfWeek.forEach(dayOfWeek => {
-      dayOfWeek.classList.remove('active-details-card');
-    })
-    allFiveDaysMoreInfo.forEach(moreInfo => {
-      moreInfo.classList.remove('active-more-info');
-    })
+    allFiveDaysOfWeek.forEach((dayOfWeek) => {
+      dayOfWeek.classList.remove("active-details-card");
+    });
+    allFiveDaysMoreInfo.forEach((moreInfo) => {
+      moreInfo.classList.remove("active-more-info");
+    });
     fiveDaysDetailsContainer.classList.add("active-more-info-container");
     fiveDaysMoreInfoContainer.classList.remove("hidden");
-    card.children[0].classList.add('active-details-card');
-    card.children[3].children[1].classList.add('active-more-info');
+    card.children[0].classList.add("active-details-card");
+    card.children[3].children[1].classList.add("active-more-info");
   }
 }
 
-allFiveDaysCards.forEach(card => {
-  card.addEventListener('click', then => {
+allFiveDaysCards.forEach((card) => {
+  card.addEventListener("click", (then) => {
     let selectedDay = 0;
-    let selectedCardID = card.getAttribute('id');
+    let selectedCardID = card.getAttribute("id");
     if (selectedCardID.slice(8, 9) === "1") {
       selectedDay = 0;
       checkSelectedCardsClasses(card);
@@ -331,8 +330,8 @@ allFiveDaysCards.forEach(card => {
     fetchCityFiveDays(searchInput.value).then((res) => {
       getDataForMoreInfo(res, dayOfMonthForMoreInfo[selectedDay]);
     });
-  })
-})
+  });
+});
 
 function buildResponseFiveDays(res) {
   getTemperatures(res);
@@ -342,8 +341,8 @@ function buildResponseFiveDays(res) {
 }
 
 function defaultCity() {
-  searchInput.value = "Skarżysko-Kamienna";
-  fetchCityFiveDays("Skarżysko-Kamienna").then((res) => {
+  searchInput.value = "Warsaw";
+  fetchCityFiveDays("Warsaw").then((res) => {
     buildResponseFiveDays(res);
   });
 }
@@ -383,28 +382,28 @@ let dayFiveIcon = document
   .getElementById("details-5")
   .querySelector(".five-days-weather__details-image").style;
 
-
-
 let scrollAmount = 0;
 
-const fiveDaysDetailsRightArrow = document.querySelector('.five-days-weather__switch-right');
+const fiveDaysDetailsRightArrow = document.querySelector(
+  ".five-days-weather__switch-right"
+);
 fiveDaysDetailsRightArrow.onclick = function () {
   scrollAmount = 0;
   containerForBoxes.scrollBy({
     left: +82,
-    behavior: 'smooth'
-  })
-}
+    behavior: "smooth",
+  });
+};
 
-const fiveDaysDetailsLeftArrow = document.querySelector('.five-days-weather__switch-left');
+const fiveDaysDetailsLeftArrow = document.querySelector(
+  ".five-days-weather__switch-left"
+);
 fiveDaysDetailsLeftArrow.onclick = function () {
   scrollAmount = 0;
   containerForBoxes.scrollBy({
     left: -82,
-    behavior: 'smooth'
-  })
-}
-
-export {
-  buildResponseFiveDays
+    behavior: "smooth",
+  });
 };
+
+export { buildResponseFiveDays };

@@ -10,7 +10,7 @@ import {
   sunsetSvg,
   sunCloudSvg,
   cloudySvg,
-} from './js-icons.js';
+} from "./js-icons.js";
 import { checkIfCityIsFavorite } from "./favorite-cities.js";
 
 /*
@@ -21,15 +21,15 @@ dane dotyczące ikonek pogody
 13d - snowySvg
 else - suniceSvg */
 
-const searchInput = document.querySelector('.search-field__input');
+const searchInput = document.querySelector(".search-field__input");
 
-const weatherSvg = document.getElementById('weather-box-icon').style;
+const weatherSvg = document.getElementById("weather-box-icon").style;
 
-const sunnyCode = '01d';
-const fewCloudsCode = '02d';
-const cloudyCode1 = '03d';
-const cloudyCode2 = '04d';
-const snowyCode = '13d';
+const sunnyCode = "01d";
+const fewCloudsCode = "02d";
+const cloudyCode1 = "03d";
+const cloudyCode2 = "04d";
+const snowyCode = "13d";
 
 function getWeatherIcon(res) {
   let currentWeather = res.weather[0].icon;
@@ -46,15 +46,15 @@ function getWeatherIcon(res) {
   }
 }
 
-const foundCityName = document.getElementById('weather-box-city-name');
+const foundCityName = document.getElementById("weather-box-city-name");
 
 function getCityName(res) {
   foundCityName.innerHTML = res.name;
 }
 
-const mainTemp = document.getElementById('weather-box-main-temp');
-const minTemp = document.getElementById('weather-min__down');
-const maxTemp = document.getElementById('weather-max__down');
+const mainTemp = document.getElementById("weather-box-main-temp");
+const minTemp = document.getElementById("weather-min__down");
+const maxTemp = document.getElementById("weather-max__down");
 
 function getTemperatures(res) {
   mainTemp.innerHTML = `${Math.floor(res.main.temp)}°`;
@@ -62,13 +62,13 @@ function getTemperatures(res) {
   maxTemp.innerHTML = `${Math.floor(res.main.temp_max)}°`;
 }
 
-const sunrise = document.querySelector('.date-box-sun-rise-text');
-const sunset = document.querySelector('.date-box-sun-set-text');
+const sunrise = document.querySelector(".date-box-sun-rise-text");
+const sunset = document.querySelector(".date-box-sun-set-text");
 
 function getSunriseAndsunSet(res) {
-  const sunriseUNIX = new Date(Number(res.sys.sunrise + '000'));
+  const sunriseUNIX = new Date(Number(res.sys.sunrise + "000"));
   sunrise.innerHTML = sunriseUNIX.toTimeString().slice(0, 5);
-  const sunsetUNIX = new Date(Number(res.sys.sunset + '000'));
+  const sunsetUNIX = new Date(Number(res.sys.sunset + "000"));
   sunset.innerHTML = sunsetUNIX.toTimeString().slice(0, 5);
 }
 
@@ -80,46 +80,50 @@ function buildResponseMain(res) {
 }
 
 function defaultCity() {
-  searchInput.value = "Skarżysko-Kamienna";
-  fetchCity('Skarżysko-Kamienna').then(res => {
+  searchInput.value = "Warsaw";
+  fetchCity("Warsaw").then((res) => {
     buildResponseMain(res);
   });
 }
 
 defaultCity();
 
-searchInput.addEventListener('change', event => {
+searchInput.addEventListener("change", (event) => {
   event.preventDefault();
   if (searchInput.value === "") {
     checkIfCityIsFavorite();
     defaultCity();
   } else {
-    fetchCity(searchInput.value).then(res => {
+    fetchCity(searchInput.value).then((res) => {
       checkIfCityIsFavorite();
       buildResponseMain(res);
-    })
+    });
   }
-})
+});
 
 const favoriteCityCapsule = document.querySelector(".fav-city__boxes");
 let scrollAmount = 0;
 
-const favCityArrowButtonRight = document.querySelector('.fav-city__arrow-button-right');
+const favCityArrowButtonRight = document.querySelector(
+  ".fav-city__arrow-button-right"
+);
 favCityArrowButtonRight.onclick = function () {
   scrollAmount = 0;
   favoriteCityCapsule.scrollBy({
     left: +200,
-    behavior: 'smooth'
-  })
-}
+    behavior: "smooth",
+  });
+};
 
-const favCityArrowButtonLeft = document.querySelector('.fav-city__arrow-button-left');
+const favCityArrowButtonLeft = document.querySelector(
+  ".fav-city__arrow-button-left"
+);
 favCityArrowButtonLeft.onclick = function () {
   scrollAmount = 0;
   favoriteCityCapsule.scrollBy({
     left: -200,
-    behavior: 'smooth'
-  })
-}
+    behavior: "smooth",
+  });
+};
 
 export { buildResponseMain };
